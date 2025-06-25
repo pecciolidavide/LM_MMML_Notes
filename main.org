@@ -1,0 +1,32 @@
+#+title: Metodi Matematici per il Machine Learning
+#+date: a.a. 2024-25
+#+author: Davide Peccioli
+#+latex_class: org-base-book
+#+latex_header: \renewcommand{\href}[2]{\textcolor{blue}{#2}}
+
+#+BEGIN_EXPORT latex
+\part{De Rossi}
+#+END_EXPORT
+
+* Reti Neurali
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Neurone Artificiale"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Funzioni di attivazione"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Rete Neurale"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Funzioni Costo (Machine Learning)"
+
+* Cenni di Teoria della Misura
+
+** Funzioni sigmoidali e funzioni discriminatorie
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625110110-funzione_sigmoidale.org::*Definizione"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org::*Definizione"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625110457-funzioni_sigmoidali_sono_discriminatorie_per_le_misure_di_baire_sul_cubo_unitario.org::*Proposizione"
+
+#+BEGIN_EXPORT latex
+\part{Cordero}
+#+END_EXPORT
+
+#+BEGIN_EXPORT latex
+\part{Sirovich}
+#+END_EXPORT
