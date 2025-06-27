@@ -4,6 +4,8 @@
 #+latex_class: org-base-book
 #+latex_header: \renewcommand{\href}[2]{\textcolor{blue}{#2}}
 
+* -------------------------------------------------- PARTE I :ignore:
+
 #+BEGIN_EXPORT latex
 \part{De Rossi}
 #+END_EXPORT
@@ -14,18 +16,32 @@
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Funzioni di attivazione"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Rete Neurale"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Funzioni Costo (Machine Learning)"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250627110009-training_error_and_test_error.org::*Processo di apprendimento di una rete neurale"
 
-* Cenni di Teoria della Misura
+* Cenni di Analisi Matematica
 
-** Funzioni sigmoidali e funzioni discriminatorie
+** Teoria della misura
+
+*** Funzioni sigmoidali e funzioni discriminatorie
 
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625110110-funzione_sigmoidale.org::*Definizione"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org::*Definizione"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625110457-funzioni_sigmoidali_sono_discriminatorie_per_le_misure_di_baire_sul_cubo_unitario.org::*Proposizione"
 
+** Minimizzazione
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250627131207-curva_di_livello.org::*Curva di livello"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250627130736-gradiente_e_perpendicolare_alle_curve_di_livello.org::*Gradiente è perpendicolare alle curve di livello"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250627130923-esistenza_di_una_curva_perpendicolare_a_tutte_le_curve_di_livello.org::*Esistenza di una curva perpendicolare a tutte le curve di livello"
+
+* -------------------------------------------------- PARTE II :ignore:
+
 #+BEGIN_EXPORT latex
 \part{Cordero}
 #+END_EXPORT
+
+
+* ------------------------------------------------- PARTE III :ignore:
 
 #+BEGIN_EXPORT latex
 \part{Sirovich}

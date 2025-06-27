@@ -1,4 +1,4 @@
-% Created 2025-06-25 Mer 18:16
+% Created 2025-06-27 Fri 13:15
 % Intended LaTeX compiler: pdflatex
 \documentclass[10pt]{book}
 %% CREATO CON ORG - EMACS
@@ -299,10 +299,10 @@
 
 \part{De Rossi}
 \chapter{Reti Neurali}
-\label{sec:orgb3dcfa2}
+\label{sec:orgaa37787}
 
 \section{Neurone Artificiale}
-\label{sec:orga6689fb}
+\label{sec:org7f4e753}
 Un \uline{neurone} è una cellula del corpo umano che può essere schematizzata come segue:
 \begin{quote}
 A neuron is a cell which consists of the following parts: dendrites, axon,and body-cell. The synapse is the connection between the axon of one neuron and the dendrite of another. The functions of each part is briefly described below:
@@ -326,7 +326,7 @@ Matematicamente, quindi, si considera un neurone come una unità che riceve degl
 \end{tikzcd}
 \end{equation*}
 \subsection{Neurone Sigma-Heaviside}
-\label{sec:org5a54fe8}
+\label{sec:org89ae928}
 
 Il modello più semplice è quello che riceve degli input, li somma dopo averli moltiplicati per dei pesi, e:
 \begin{itemize}
@@ -369,7 +369,7 @@ H\left(\sum_{i=0}^{n} x_{i}\,w_{i}\right)=\begin{cases}
 \end{cases}
 \end{equation*}
 \subsection{Regressione Lineare}
-\label{sec:org54e06bf}
+\label{sec:orgd504a7a}
 
 Un altro esempio di neurone è quello che approssima\footnote{Approssima in senso \(L^{2}\) (ovvero minimizza la \href{../../../../../org/roam/20250624162220-spazi_lp.org}{norma \(L^{2}\)} della differenza).} una \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua}
 \begin{equation*}
@@ -422,18 +422,19 @@ Dunque, posto che \(\rho\) sia \href{../../../../../org/roam/20250104111735-matr
 
 Nel caso di funzioni a valori in \(\R^{m}\) il problema si scompone nelle diverse coordinate.
 \section{Rete Neurale}
-\label{sec:orgb33aaf9}
+\label{sec:org056a6da}
 Una \uline{rete neurale} è [\ldots{}]
 
 Questa riceve degli \uline{input} e produce un \uline{output}, in base a certi parametri \(\bm{w}\), per simulare la \uline{FUNZIONE TARGET}; quest'ultima è l'obiettivo finale della Rete Neurale (ovvero si vuole far sì che l'output della rete neurale sia il più vicino possibile al risultato della funzione target).
 
 Per misurare la distanza tra l'output di una rete e la funzione target si utilizza una \uline{funzione errore} (o \uline{funzione costo}), che deve essere scelta in base all'applicazione specifica.
 
-Il \uline{processo di apprendimento} è quello che, partendo dai parametri \(\bm{w}\), li modifica (iterativamente), fino a dei parametri \(\bm{w}^{*}\), che sono \uline{ottimali}, nel senso che minimizzano la \uline{funzione errore}. Dunque il processo di apprendimento comporta la minimizzazione della funzione costo.
-\section{Funzioni Costo (Machine Learning)}
-\label{sec:orge28f52f}
+Il \uline{\hyperref[sec:org933f778]{processo di apprendimento}} è quello che, partendo dai parametri \(\bm{w}\), li modifica (iterativamente), fino a dei parametri \(\bm{w}^{*}\), che sono \uline{ottimali}, nel senso che minimizzano la \uline{funzione errore}. Dunque il processo di apprendimento comporta la minimizzazione della funzione costo.
+\section{Funzioni costo (Machine Learning)}
+\label{sec:orgf94918a}
+Una funzione costo è una funzione che misura, dati certi parametri \(\bm{w}\) di una rete neurale, \uline{quanto la rete neurale si discosta dalla funzione target}.
 \subsection{La Funzione Errore Supremum}
-\label{sec:org86499c1}
+\label{sec:orgfa04425}
 
 Una rete neurale prende input \(x \in [0,1]\) e deve imparare una data funzione continua \(\phi:[0,1]\to [0,1]\).
 
@@ -449,7 +450,7 @@ Se la funzione \(\phi\) è conosciuta solo per \(N\) valori \(x_{1},\dots,x_{N}\
 C(\bm{w},b) \coloneqq \max_{i=1,\dots, N} |f_{\bm{w},b}(x_{i})-\phi(x_{i})|.
 \end{equation*}
 \subsection{La Funzione Errore Norma L2}
-\label{sec:orgc19e927}
+\label{sec:orgfcb8e21}
 
 Una rete neurale prende input \(x \in [0,1]\) e deve imparare una data funzione \(\phi:[0,1]\to \R\) tale che
 \begin{equation*}
@@ -461,7 +462,6 @@ La funzione della rete neurale, dipendete dai parametri \(\bm{w},\bm{b}\), è \(
 C(\bm{w},\bm{b}) \coloneqq \int_{[0,1]} (f_{\bm{w},\bm{b}}(x)-\phi(x))^{2}\dif x.
 \end{equation*}
 
-
 Se la funzione \(\phi\) è conosciuta soltanto in \(N\) punti
 \begin{equation*}
 z_{1}=\phi(x_{1}),\quad z_{2}=\phi(x_{2}),\qquad, z_{N} = \phi(x_{N})
@@ -471,7 +471,7 @@ allora, posti \(\bm{z}=(z_{1},\dots,z_{N})\) e \(\bm{x} = (x_{1},\dots,x_{N})\),
 C(\bm{w},\bm{b}) = \norma{\bm{z}-f_{\bm{w},\bm{b}}(\bm{x})}^{2} = \sum_{i=1}^{N} |z_{i}-f_{\bm{w},\bm{b}}(x_{i})|^{2}
 \end{equation*}
 \subsubsection{Interpretazione Geometrica}
-\label{sec:org6d453e6}
+\label{sec:org75f4bbb}
 
 Fissati \(\bm{x}\) e \(\bm{z}\), la mappa \((\bm{w},\bm{b})\mapsto f_{\bm{w},\bm{b}}(\bm{x})\) rappresenta una ipersuperficie in \(\R^{N}\):
 \begin{equation*}
@@ -503,11 +503,85 @@ Queste sono le \uline{equazioni normali}, che operativamente diventano
 \sum_{i=1}^{N} (f_{\bm{w},\bm{b}}(x_{i})-z_{i})\cdot \restriction{\partial_{w_{k}} f_{\bm{w},\bm{b}} (x_{i})}{(\bm{w},\bm{b}) = (\bm{w}^{*},\bm{b}^{*})} &= 0\\
 \sum_{i=1}^{N} (f_{\bm{w},\bm{b}}(x_{i})-z_{i})\cdot \restriction{\partial_{b_{j}} f_{\bm{w},\bm{b}} (x_{i})}{(\bm{w},\bm{b}) = (\bm{w}^{*},\bm{b}^{*})} &= 0
 \end{align*}
-\chapter{Cenni di Teoria della Misura}
-\label{sec:org9eed58a}
+\subsection{Regolarizzazione della Funzione Costo (Machine Learning)}
+\label{sec:org62dbd3a}
+Per evitare il fenomeno dell'\href{../../../../../org/roam/20250627103519-overfitting.org}{overfitting}, è bene mantenere i parametri \uline{piccoli}. Pertanto, data una \hyperref[sec:orgf94918a]{funzione costo} \(C(\bm{w})\), la si \uline{regolarizza}, utilizzando una funzione costo \(G(\bm{w})\), data da \(C(\bm{w})\) più un termine di regolarizzazione.
 
-\section{Funzioni sigmoidali e funzioni discriminatorie}
-\label{sec:org1e1be3a}
+\begin{description}
+\item[{Regolarizzazione \(L^{2}\).}] Si aggiunge alla funzione \(C(\bm{w})\) la \href{../../../../../org/roam/20250627104832-p_norma_in_rn.org}{2-norma} in \(\R^{n}\) dei parametri:
+\begin{equation*}
+  G(\bm{w}) \coloneqq C(\bm{w}) + \lambda\norma{\bm{w}}^{2}_{2},\qquad\text{dove }\norma{\bm{w}}^{2}_{2} = \sum_{i=1}^{n} (w_{i})^{2}.
+\end{equation*}
+Il valore \(\lambda>0\) è un \href{../../../../../org/roam/20250627104011-moltiplicatore_di_lagrange.org}{moltiplicatore di Lagrange}; questo parametro deve essere scelto in maniera da minimizzare l'\emph{overfitting}.
+\item[{Regolarizzazione \(L^{1}\).}] Si aggiunge alla funzione \(C(\bm{w})\) la 1-norma in \(\R^{n}\) dei parametri:
+\begin{equation*}
+  G(\bm{w}) \coloneqq C(\bm{w}) + \lambda\norma{\bm{w}}^{2}_{2},\qquad\text{dove }\norma{\bm{w}}_{1} = \sum_{i=1}^{n} |w_{i}|.
+\end{equation*}
+Il valore \(\lambda>0\) è un \href{../../../../../org/roam/20250627104011-moltiplicatore_di_lagrange.org}{moltiplicatore di Lagrange}. Questo metodo, non differenziabile nell'origine, potrebbe dare dei problemi nella ricerca dei minimi tramite il gradiente.
+\item[{Potential Regolation.}] Sia \(U:\R^{n}\to \R^{+}\) tale che:
+\begin{enumerate}
+\item \(U(x) = 0\) se e solo se \(x=0\);
+\item \(U\) ha un minimo assoluto in \(x=0\).
+\end{enumerate}
+
+La funzione costo regolarizzata diventa:
+\begin{equation*}
+  G(\bm{w}) = C(\bm{w}) + \lambda\, U(\bm{w}),\qquad\lambda>0
+\end{equation*}
+
+Il potenziale deve essere scelto in maniera tale che l'errore, utilizzando \(G\), sia \uline{minore} che utilizzando \(C\).
+\end{description}
+\section{Processo di apprendimento di una rete neurale}
+\label{sec:org933f778}
+L'apprendimento di una \hyperref[sec:org056a6da]{rete neurale} è il processo di ricerca dei parametri ottimali per approssimare la funzione target. Questo è un processo iterativo algoritmico, che genera una \href{../../../../../org/roam/20250206170922-sequenze_e_stringhe.org}{sequenza} \((w_{t})\) di parametri. Poiché si parla di numeri immensi di elementi in questa sequenza, spesso ci si riferisce a \(t\) come una sorta di variabile temporale continua.
+
+Si vuole allenare un modello per replicare una funzione target di cui si conoscono \(N\) valori: \(\set{(x_{i},z_{i})}\), minimizzando la funzione costo \(C(\bm{w})\).
+
+Questo insieme è diviso in \uline{tre parti}:
+\begin{itemize}
+\item \uline{training set \(\mathcal{T}\)} (c.a. 70\% dei dati);
+\item \uline{test set \(\mathrm{T}\)} (c.a. 20\% dei dati);
+\item \uline{validation set \(\mathcal{V}\)} (c.a. 10\% dei dati).
+\end{itemize}
+
+Si suppone che siano identicamente distribuiti, e che siano indipendenti. Si ottengono quindi tre errori:
+\begin{itemize}
+\item \uline{errore di training \(C_{\mathcal{T}}(\bm{w})\)}: è il valore della funzione costo utilizzando i valori della funzione target presi dal training set;
+\item \uline{errore di test \(C_{\mathrm{T}}(\bm{w})\)}: è il valore della funzione costo utilizzando i valori della funzione target presi dal test set;
+\item \uline{validation error \(C_{\mathcal{V}}(\bm{w})\)}: è il valore della funzione costo utilizzando i valori della funzione target presi dal validation set.
+\end{itemize}
+\subsection{Errori di Training e di Test}
+\label{sec:org6ec9b2d}
+Con un qualche algoritmo si trova il valore \(\bm{w}^{*}\) che minimizza \(C_{\mathcal{T}}\). Successivamente, si calcola \(C_{\mathrm{T}}(\bm{w}^{*})\), e generalmente vale:
+\begin{equation*}
+	C_{\mathcal{T}}(\bm{w}^{*}) \le C_{\mathrm{T}}(\bm{w}^{*})
+\end{equation*}
+Ci sono tre possibili scenari, a questo punto:
+\begin{itemize}
+\item sia \(C_{\mathcal{T}}(\bm{w}^{*})\) che \(C_{\mathrm{T}}(\bm{w}^{*})\) sono piccoli: questo è lo scenario desiderato;
+\item \(C_{\mathcal{T}}(\bm{w}^{*})\) è piccolo, ma \(C_{\mathrm{T}}(\bm{w}^{*})\) è grande: questo è un fenomeno di \uline{overfitting}; questo significa che la rete neurale sta ``memorizzando'' il training set, e non riesce a generalizzare bene; probabilmente bisogna rivedere l'architettura della rete neurale, probabilmente diminuendo i parametri;
+\item sia \(C_{\mathcal{T}}(\bm{w}^{*})\) che \(C_{\mathrm{T}}(\bm{w}^{*})\) sono grandi: questo è un fenomeno di \uline{underfitting}; bisogna rivedere l'architettura della rete neurale, probabilmente aumentando i parametri.
+\end{itemize}
+
+Pertanto si utilizza il \uline{test set} per verificare che i valori dei parametri trovati sul training set siano sufficientemente generalizzabili.
+\subsection{Iperparametri di un processo di apprendimento}
+\label{sec:orgbc83b07}
+L'algoritmo di apprendimento dipende da un insieme di parametri \uline{diversi} da quelli della rete neurale. Questi sono detti \uline{iperparametri}.
+
+Si utilizza la mimimizzazione del \uline{validation error} proprio per regolare gli iperparametri.
+\subsection{Alcuni esempi di algoritmi di apprendimento}
+\label{sec:org5ccdf8b}
+
+\subsubsection{Regressione Lineare}
+\label{sec:org71041be}
+\chapter{Cenni di Analisi Matematica}
+\label{sec:org3476f14}
+
+\section{Teoria della misura}
+\label{sec:orgb88a416}
+
+\subsection{Funzioni sigmoidali e funzioni discriminatorie}
+\label{sec:org2e8370f}
 
 \begin{definizione}
 Una funzione \(\sigma:\R\to [0,1]\) si dice \uline{sigmoidale} se\footnote{Vedi ``\href{../../../../../org/roam/20250625110412-limite_analisi_matematica.org}{Limite (Analisi Matematica)}''}
@@ -535,8 +609,26 @@ allora, per ogni \(\mu \in \mathcal{M}\),
 \left(\forall \bm{w} \in \R^{n},\, \forall \theta \in \R\quad \int_{I^{n}} f(\bm{w}\cdot\bm{x}) \dif \mu(\bm{x}) = 0\right)\implies \mu=0
 \end{equation*}
 \end{prop}
+\section{Minimizzazione}
+\label{sec:orgcafe860}
 
+\begin{definizione}
+
+\end{definizione}
+\begin{prop}
+\lipsum[1]
+\end{prop}
+\begin{lem}
+\lipsum[2]
+\end{lem}
+
+\begin{lem}
+\lipsum[3]
+\end{lem}
+
+\begin{thm}
+\lipsum[4]
+\end{thm}
 \part{Cordero}
-
 \part{Sirovich}
 \end{document}
