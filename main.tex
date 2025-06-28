@@ -1,4 +1,4 @@
-% Created 2025-06-27 Fri 13:15
+% Created 2025-06-28 Sat 11:11
 % Intended LaTeX compiler: pdflatex
 \documentclass[10pt]{book}
 %% CREATO CON ORG - EMACS
@@ -299,10 +299,10 @@
 
 \part{De Rossi}
 \chapter{Reti Neurali}
-\label{sec:orgaa37787}
+\label{sec:orgb3e2895}
 
 \section{Neurone Artificiale}
-\label{sec:org7f4e753}
+\label{sec:orge4cf044}
 Un \uline{neurone} è una cellula del corpo umano che può essere schematizzata come segue:
 \begin{quote}
 A neuron is a cell which consists of the following parts: dendrites, axon,and body-cell. The synapse is the connection between the axon of one neuron and the dendrite of another. The functions of each part is briefly described below:
@@ -313,7 +313,7 @@ A neuron is a cell which consists of the following parts: dendrites, axon,and bo
 \end{itemize}
 \end{quote}
 
-Matematicamente, quindi, si considera un neurone come una unità che riceve degli input (un vettore \(\bm{x}\)), lo \href{../../../../../org/roam/20250625095723-prodotto_scalare.org}{moltiplica} per un vettore di pesi \(\bm{w} = (w_{0},\dots,w_{n})\), e produce un output processando il prodotto scalare tramite una \uline{\href{../../../../../org/roam/20250624155858-neurone_artificiale.org}{funzione di attivazione}}:
+Matematicamente, quindi, si considera un neurone come una unità che riceve degli input (un vettore \(\bm{x}\)), lo \href{../../../../../org/roam/20250625095723-prodotto_scalare.org}{moltiplica} per un vettore di pesi \(\bm{w} = (w_{0},\dots,w_{n})\), e produce un output processando il prodotto scalare tramite una \uline{\hyperref[sec:org4933a3a]{funzione di attivazione}}:
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&,cramped]
 	{\text{Input: }\bm{x}} \\
@@ -326,7 +326,7 @@ Matematicamente, quindi, si considera un neurone come una unità che riceve degl
 \end{tikzcd}
 \end{equation*}
 \subsection{Neurone Sigma-Heaviside}
-\label{sec:org89ae928}
+\label{sec:org8825059}
 
 Il modello più semplice è quello che riceve degli input, li somma dopo averli moltiplicati per dei pesi, e:
 \begin{itemize}
@@ -369,7 +369,7 @@ H\left(\sum_{i=0}^{n} x_{i}\,w_{i}\right)=\begin{cases}
 \end{cases}
 \end{equation*}
 \subsection{Regressione Lineare}
-\label{sec:orgd504a7a}
+\label{sec:org7a9d177}
 
 Un altro esempio di neurone è quello che approssima\footnote{Approssima in senso \(L^{2}\) (ovvero minimizza la \href{../../../../../org/roam/20250624162220-spazi_lp.org}{norma \(L^{2}\)} della differenza).} una \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua}
 \begin{equation*}
@@ -421,20 +421,411 @@ Dunque, posto che \(\rho\) sia \href{../../../../../org/roam/20250104111735-matr
 \end{equation*}
 
 Nel caso di funzioni a valori in \(\R^{m}\) il problema si scompone nelle diverse coordinate.
+\section{Funzioni di attivazione}
+\label{sec:org4933a3a}
+Nel Machine Learning le funzioni che agiscono nei \hyperref[sec:orge4cf044]{neuroni} vengono dette \uline{funzioni di attivazione}. Se ne presentano alcuni esempi, con i loro nomi specifici.
+
+Sono tutte funzioni \(A \subseteq\R\to B \subseteq \R\).
+\subsection{Funzioni Lineari}
+\label{sec:org0e1a0fb}
+
+Tra le funzioni di attivazione utilizzate vi sono le seguenti funzioni lineari:
+\begin{itemize}
+\item \(f(x) = kx\), per \(k > 0\) costante;
+\item la funzione identità \(x\mapsto x\).
+\end{itemize}
+\subsection{Step Functions}
+\label{sec:org496457b}
+
+\subsubsection{Threshold step function}
+\label{sec:orgcb4c9ac}
+
+La \href{../../../../../org/roam/20250624161413-funzione_di_heaviside.org}{funzione di Heaviside} (vedi Fig. \ref{fig:heav})
+\begin{equation*}
+H(x)=\begin{cases}
+1 & x\ge 0\\
+0 & x<0
+\end{cases}
+\end{equation*}
+la cui derivata (nel senso delle \href{../../../../../org/roam/20250625100117-distribuzione_analisi_matematica.org}{distribuzioni}) è una \href{../../../../../org/roam/20250625100133-delta_di_dirac.org}{Delta di Dirac}: \(H'(x) = \delta(x)\):
+\begin{equation*}
+\delta(x) = \begin{cases}
+0 & x\neq 0\\
++\infty & x=0
+\end{cases}
+\end{equation*}
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {0};
+\addplot[domain=0:2, samples=100, ultra thick, red] {1};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione di Heaviside}\label{fig:heav}
+\end{figure}
+\subsubsection{Bipolar step function}
+\label{sec:org8d72abe}
+
+La funzione segno: (vedi Fig. \ref{fig:bip})
+\begin{equation*}
+S(x)= \begin{cases}
+1 & x\ge{0}\\
+-1 & x<0
+\end{cases}
+\end{equation*}
+per cui vale: \(S(x)=2H(x)-1\). Pertanto la sua derivata è
+\begin{equation*}
+S'(x) = 2H'(x)=2\delta(x)
+\end{equation*}
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {-1};
+\addplot[domain=0:2, samples=100, ultra thick, red] {1};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione segno}\label{fig:bip}
+\end{figure}
+\subsection{Hockeystick Functions}
+\label{sec:orgcd88dae}
+
+\subsubsection{ReLU}
+\label{sec:orgc22b9be}
+
+La \emph{Rectified Linear Unit} (ReLU) è (vedi Fig. \ref{fig:relu})
+\begin{equation*}
+\operatorname{ReLU}(x) = xH(x) = \max\set{0,x}
+\end{equation*}
+e la sua derivata \(\operatorname{ReLU}'(x) = H(x)\).
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {0};
+\addplot[domain=0:2, samples=100, ultra thick, red] {x};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{RELU}(x)\)}\label{fig:relu}
+\end{figure}
+\subsubsection{PReLU}
+\label{sec:org264ed09}
+
+La \emph{Parametric Rectivied Linear Unit} (PReLU) è (vedi Fig \ref{fig:prelu}), per \(\alpha>0\)
+\begin{equation*}
+\operatorname{PReLU}(\alpha;x) = \operatorname{PReLU}_{\alpha}(x) = \begin{cases}
+\alpha x & x<0\\
+x & x \ge 0
+\end{cases}
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {x};
+\addplot[domain=0:2, samples=100, ultra thick, red] {2 * x};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{PRELU}_{2}(x)\)}\label{fig:prelu}
+\end{figure}
+\subsubsection{ELU}
+\label{sec:org23de31e}
+
+La \emph{Exponential Linear Units} (ELU) è (vedi Fig. \ref{fig:elu}):
+\begin{equation*}
+\operatorname{ELU}(\alpha,x) = \begin{cases}
+x &x>0\\
+\alpha(e^{x}-1) &x\le 0
+\end{cases}
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {x};
+\addplot[domain=0:2, samples=100, ultra thick, red] {2 * exp(x) - 2};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{ELU}(\alpha,x)\)}\label{fig:elu}
+\end{figure}
+\subsubsection{SELU}
+\label{sec:org59343a7}
+
+La \emph{Scaled Exponential Linear Units} (SELU) è (vedi Fig. \ref{fig:selu})
+\begin{equation*}
+\operatorname{SELU}(\alpha,\lambda,x) = \lambda\operatorname{ELU}(\alpha,x) = \begin{cases}
+\lambda\,x & x>0\\
+\alpha\lambda(e^{x}-1) &x\le 0.
+\end{cases}
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:0, samples=100, ultra thick, red] {0.4 * x};
+\addplot[domain=0:2, samples=100, ultra thick, red] {0.8 * exp(x) - 0.8};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{SELU}(0.4,2,x)\)}\label{fig:selu}
+\end{figure}
+\subsubsection{SLU}
+\label{sec:orgec6050c}
+
+La \emph{Sigmoid Linear Units} (SLU) è (vedi Fig. \ref{fig:slu})
+\begin{equation*}
+\phi(x) = \frac{x}{1+e^{-x}}.
+\end{equation*}
+
+Questa non è una \href{../../../../../org/roam/20250203132953-funzione_monotona.org}{funzione monotona}, ma ha un \href{../../../../../org/roam/20250627153543-massimo_e_minimo_di_una_funzione_reale.org}{minimo} in \(x_{0}\approx -1,27\).
+
+Spesso si usa anche la versione parametrica:
+\begin{equation*}
+\phi_{c}(x) = \frac{x}{1+e^{-cx}}.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-7:7, samples=100, ultra thick, red] {x / (1 + exp(-x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{SLU}(x)\)}\label{fig:slu}
+\end{figure}
+\subsubsection{Softplus}
+\label{sec:org821867c}
+
+Questa è una funzione positiva crescente, con \href{../../../../../org/roam/20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range} \((0,+\infty)\): (vedi Fig. \ref{fig:sp})
+\begin{equation*}
+\operatorname{sp}(x) = \ln(1+e^{x}).
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-3:3, samples=100, ultra thick, red] {ln(1 + exp(x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{sp}(x)\)}\label{fig:sp}
+\end{figure}
+
+Inoltre
+\begin{align*}
+\operatorname{sp}(x)- \operatorname{sp}(-x) &= \ln(1+e^{x}) - \ln(1+e^{-x}) \\
+&= \ln\left(\frac{1+e^{x}}{1+e^{-x}}\right) = \ln\left(\frac{1+e^{x}}{e^{-x}(1+e^{x})}\right) \\
+&= \ln e^{x} = x.
+\end{align*}
+La sua derivata è
+\begin{equation*}
+\operatorname{sp}'(x) = \frac{1}{1+e^{-x}}>0.
+\end{equation*}
+\subsection{Funzioni Sigmoidali}
+\label{sec:orgbb05a4b}
+
+\subsubsection{Logistic Function}
+\label{sec:orgf0e6195}
+
+La funzione logistica è (vedi Fig. \ref{fig:logistic})
+\begin{equation*}
+\sigma_{c}(x) = \sigma(c;x) = \frac{1}{1+e^{-cx}}.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-3:3, samples=100, ultra thick, red] {1 / (1 + exp(- 2 * x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\sigma_{2}(x)\)}\label{fig:logistic}
+\end{figure}
+
+La famiglia di funzioni \((\sigma_{c}(x))_{c \in (0,+\infty)}\) approssima la \href{../../../../../org/roam/20250624161413-funzione_di_heaviside.org}{funzione di Heaviside} \(H(x)\), in quanto
+\begin{equation*}
+\lim_{c\to \infty} e^{-cx} = \begin{cases}
+0 & x>0\\
+1 & x=0\\
++ \infty & x<0
+\end{cases}
+\end{equation*}
+e pertanto
+\begin{equation*}
+\lim_{c\to+\infty} \sigma_{c}(x) = \begin{cases}
+1 &x>0\\
+\frac{1}{2} & x=0\\
+0 &x<0
+\end{cases}
+\end{equation*}
+e pertanto, per ogni \(x\neq 0\): \(H(x) =\lim_{c\to+\infty}\sigma_{c}(x)\).
+
+Le funzioni logistiche sono soluzioni della seguente equazione differenziale:
+\begin{equation*}
+\sigma_{c}' = c\sigma_{c}\,(1-\sigma_{c})
+\end{equation*}
+infatti:
+\begin{align*}
+\sigma_{c}'(x) &= - \frac{1}{(1+e^{-cx})^{2}} \cdot (-c\,e^{-cx})\\
+&= c \cdot \frac{1}{1+e^{-cx}} \cdot \frac{e^{-cx}}{1+e^{-cx}}\\
+&= c \cdot \frac{1}{1+e^{-cx}} \cdot \left(\frac{e^{-cx}+1-1}{1+e^{-cx}}\right)\\
+&= c \cdot \frac{1}{1+e^{-cx}} \cdot \left(1+\frac{-1}{1+e^{-cx}}\right)\\
+&= c\cdot \sigma_{c}(x) \cdot (1-\sigma_{c}(x)).
+\end{align*}
+\subsubsection{Tangente Iperbolica}
+\label{sec:org5d70533}
+
+La \uline{\href{../../../../../org/roam/20250627184228-funzioni_iperboliche.org}{tangente iperbolica}} \(\tanh(x)\) è (vedi Fig. \ref{fig:tanh})
+\begin{equation*}
+\tanh(x) = \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}} = 2\sigma_{2}(x)-1
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:2, samples=100, ultra thick, red] {(exp(x) - exp(-x)) / (exp(x) + exp(-x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\tanh(x)\)}\label{fig:tanh}
+\end{figure}
+
+Inoltre si ha che \(\tanh'(x) = 1-(\tanh(x))^{2}\):
+\begin{align*}
+\tanh'(x) &= 2\sigma_{2}'(x) = 2\cdot 2\sigma_{2}(x)\cdot(1-\sigma_{2}(x))\\
+&= 2\sigma_{2}(x) \cdot (2-2\sigma_{2}(x))\\
+&= (\tanh(x)+1) \cdot (1 - 2\sigma_{2}(x)+1)\\
+&= (\tanh(x)+1)(-\tanh(x)+1) = 1-(\tanh(x))^{2}
+\end{align*}
+\subsubsection{Arcotangente}
+\label{sec:org5036684}
+
+È spesso utilizzata la seguente \href{../../../../../org/roam/20250627184319-funzioni_trigonometriche.org}{arcotangente} (vedi Fig. \ref{fig:arctan}):
+\begin{equation*}
+h(x) = \frac{2}{\pi} \arctan(x) \qquad x \in \R.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:2, samples=100, ultra thick, red] {rad(atan(x)) * 2 / 3.1415};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(h(x)\)}\label{fig:arctan}
+\end{figure}
+\subsubsection{Softsign}
+\label{sec:orga284830}
+
+La seguente funzione differenziabile è la funzione \emph{softsign}: (vedi Fig. \ref{fig:softsign})
+\begin{equation*}
+\operatorname{so}(x)=\frac{x}{1+|x|},\qquad x \in \R
+\end{equation*}
+che ha raange \((-1,1)\).
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-2:2, samples=100, ultra thick, red] {x / (1 + abs(x))};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(\operatorname{so}(x)\)\)}\label{fig:softsign}
+\end{figure}
+\subsubsection{Piecewise Linear}
+\label{sec:org9edb4be}
+
+Dato un parametro \(\alpha>0\) (vedi Fig. \ref{fig:pieclin})
+\begin{equation*}
+f_{\alpha}(x) = f(\alpha,x) = \begin{cases}
+-1 & x\le-\alpha\\
+x/\alpha & -\alpha<x<\alpha\\
+1 &x\ge \alpha.
+\end{cases}
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-4:-2, samples=100, ultra thick, red] {-1};
+\addplot[domain=-2:2, samples=100, ultra thick, red] {x / 2};
+\addplot[domain=2:4, samples=100, ultra thick, red] {1};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(f_{2}(x)\)}\label{fig:pieclin}
+\end{figure}
+\subsection{Bumped-type Functions}
+\label{sec:org5113ec8}
+
+\subsubsection{Gaussiana}
+\label{sec:org6ea170f}
+
+La funzione gaussiana mappa \(\R\) nell'intervallo \((0,1]\): (vedi Fig. \ref{fig:gauss})
+\begin{equation*}
+g(x) = e^{-x^{2}},\qquad x \in \R.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-4:4, samples=100, ultra thick, red] {exp(- x * x)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(g(x)\)}\label{fig:gauss}
+\end{figure}
+\subsubsection{Doppio esponenziale}
+\label{sec:orga6ff645}
+
+Mappa la retta reale nell'intervallo \((0,1]\) ed è definita: (vedi Fig. \ref{fig:dexp})
+\begin{equation*}
+f(x) = e^{-\lambda\,|x|},\qquad x \in \R, \lambda>0.
+\end{equation*}
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, axis equal]
+\addplot[domain=-4:0.01, samples=100, ultra thick, red] {exp(2 * x)};
+\addplot[domain=-0.01:4, samples=100, ultra thick, red] {exp(- 2 * x)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{La funzione \(f(x)\) con parametro \(\lambda=2\)}\label{fig:dexp}
+\end{figure}
 \section{Rete Neurale}
-\label{sec:org056a6da}
+\label{sec:org521d11a}
 Una \uline{rete neurale} è [\ldots{}]
 
 Questa riceve degli \uline{input} e produce un \uline{output}, in base a certi parametri \(\bm{w}\), per simulare la \uline{FUNZIONE TARGET}; quest'ultima è l'obiettivo finale della Rete Neurale (ovvero si vuole far sì che l'output della rete neurale sia il più vicino possibile al risultato della funzione target).
 
 Per misurare la distanza tra l'output di una rete e la funzione target si utilizza una \uline{funzione errore} (o \uline{funzione costo}), che deve essere scelta in base all'applicazione specifica.
 
-Il \uline{\hyperref[sec:org933f778]{processo di apprendimento}} è quello che, partendo dai parametri \(\bm{w}\), li modifica (iterativamente), fino a dei parametri \(\bm{w}^{*}\), che sono \uline{ottimali}, nel senso che minimizzano la \uline{funzione errore}. Dunque il processo di apprendimento comporta la minimizzazione della funzione costo.
+Il \uline{\hyperref[sec:org95c6761]{processo di apprendimento}} è quello che, partendo dai parametri \(\bm{w}\), li modifica (iterativamente), fino a dei parametri \(\bm{w}^{*}\), che sono \uline{ottimali}, nel senso che minimizzano la \uline{funzione errore}. Dunque il processo di apprendimento comporta la minimizzazione della funzione costo.
 \section{Funzioni costo (Machine Learning)}
-\label{sec:orgf94918a}
+\label{sec:org5df5a3b}
 Una funzione costo è una funzione che misura, dati certi parametri \(\bm{w}\) di una rete neurale, \uline{quanto la rete neurale si discosta dalla funzione target}.
 \subsection{La Funzione Errore Supremum}
-\label{sec:orgfa04425}
+\label{sec:org2664c6c}
 
 Una rete neurale prende input \(x \in [0,1]\) e deve imparare una data funzione continua \(\phi:[0,1]\to [0,1]\).
 
@@ -450,7 +841,7 @@ Se la funzione \(\phi\) è conosciuta solo per \(N\) valori \(x_{1},\dots,x_{N}\
 C(\bm{w},b) \coloneqq \max_{i=1,\dots, N} |f_{\bm{w},b}(x_{i})-\phi(x_{i})|.
 \end{equation*}
 \subsection{La Funzione Errore Norma L2}
-\label{sec:orgfcb8e21}
+\label{sec:orged2a8ef}
 
 Una rete neurale prende input \(x \in [0,1]\) e deve imparare una data funzione \(\phi:[0,1]\to \R\) tale che
 \begin{equation*}
@@ -471,7 +862,7 @@ allora, posti \(\bm{z}=(z_{1},\dots,z_{N})\) e \(\bm{x} = (x_{1},\dots,x_{N})\),
 C(\bm{w},\bm{b}) = \norma{\bm{z}-f_{\bm{w},\bm{b}}(\bm{x})}^{2} = \sum_{i=1}^{N} |z_{i}-f_{\bm{w},\bm{b}}(x_{i})|^{2}
 \end{equation*}
 \subsubsection{Interpretazione Geometrica}
-\label{sec:org75f4bbb}
+\label{sec:orge878c5f}
 
 Fissati \(\bm{x}\) e \(\bm{z}\), la mappa \((\bm{w},\bm{b})\mapsto f_{\bm{w},\bm{b}}(\bm{x})\) rappresenta una ipersuperficie in \(\R^{N}\):
 \begin{equation*}
@@ -504,8 +895,8 @@ Queste sono le \uline{equazioni normali}, che operativamente diventano
 \sum_{i=1}^{N} (f_{\bm{w},\bm{b}}(x_{i})-z_{i})\cdot \restriction{\partial_{b_{j}} f_{\bm{w},\bm{b}} (x_{i})}{(\bm{w},\bm{b}) = (\bm{w}^{*},\bm{b}^{*})} &= 0
 \end{align*}
 \subsection{Regolarizzazione della Funzione Costo (Machine Learning)}
-\label{sec:org62dbd3a}
-Per evitare il fenomeno dell'\href{../../../../../org/roam/20250627103519-overfitting.org}{overfitting}, è bene mantenere i parametri \uline{piccoli}. Pertanto, data una \hyperref[sec:orgf94918a]{funzione costo} \(C(\bm{w})\), la si \uline{regolarizza}, utilizzando una funzione costo \(G(\bm{w})\), data da \(C(\bm{w})\) più un termine di regolarizzazione.
+\label{sec:org3ba723a}
+Per evitare il fenomeno dell'\href{../../../../../org/roam/20250627103519-overfitting.org}{overfitting}, è bene mantenere i parametri \uline{piccoli}. Pertanto, data una \hyperref[sec:org5df5a3b]{funzione costo} \(C(\bm{w})\), la si \uline{regolarizza}, utilizzando una funzione costo \(G(\bm{w})\), data da \(C(\bm{w})\) più un termine di regolarizzazione.
 
 \begin{description}
 \item[{Regolarizzazione \(L^{2}\).}] Si aggiunge alla funzione \(C(\bm{w})\) la \href{../../../../../org/roam/20250627104832-p_norma_in_rn.org}{2-norma} in \(\R^{n}\) dei parametri:
@@ -532,8 +923,8 @@ La funzione costo regolarizzata diventa:
 Il potenziale deve essere scelto in maniera tale che l'errore, utilizzando \(G\), sia \uline{minore} che utilizzando \(C\).
 \end{description}
 \section{Processo di apprendimento di una rete neurale}
-\label{sec:org933f778}
-L'apprendimento di una \hyperref[sec:org056a6da]{rete neurale} è il processo di ricerca dei parametri ottimali per approssimare la funzione target. Questo è un processo iterativo algoritmico, che genera una \href{../../../../../org/roam/20250206170922-sequenze_e_stringhe.org}{sequenza} \((w_{t})\) di parametri. Poiché si parla di numeri immensi di elementi in questa sequenza, spesso ci si riferisce a \(t\) come una sorta di variabile temporale continua.
+\label{sec:org95c6761}
+L'apprendimento di una \hyperref[sec:org521d11a]{rete neurale} è il processo di ricerca dei parametri ottimali per approssimare la funzione target. Questo è un processo iterativo algoritmico, che genera una \href{../../../../../org/roam/20250206170922-sequenze_e_stringhe.org}{sequenza} \((w_{t})\) di parametri. Poiché si parla di numeri immensi di elementi in questa sequenza, spesso ci si riferisce a \(t\) come una sorta di variabile temporale continua.
 
 Si vuole allenare un modello per replicare una funzione target di cui si conoscono \(N\) valori: \(\set{(x_{i},z_{i})}\), minimizzando la funzione costo \(C(\bm{w})\).
 
@@ -551,7 +942,7 @@ Si suppone che siano identicamente distribuiti, e che siano indipendenti. Si ott
 \item \uline{validation error \(C_{\mathcal{V}}(\bm{w})\)}: è il valore della funzione costo utilizzando i valori della funzione target presi dal validation set.
 \end{itemize}
 \subsection{Errori di Training e di Test}
-\label{sec:org6ec9b2d}
+\label{sec:org396fea6}
 Con un qualche algoritmo si trova il valore \(\bm{w}^{*}\) che minimizza \(C_{\mathcal{T}}\). Successivamente, si calcola \(C_{\mathrm{T}}(\bm{w}^{*})\), e generalmente vale:
 \begin{equation*}
 	C_{\mathcal{T}}(\bm{w}^{*}) \le C_{\mathrm{T}}(\bm{w}^{*})
@@ -565,23 +956,23 @@ Ci sono tre possibili scenari, a questo punto:
 
 Pertanto si utilizza il \uline{test set} per verificare che i valori dei parametri trovati sul training set siano sufficientemente generalizzabili.
 \subsection{Iperparametri di un processo di apprendimento}
-\label{sec:orgbc83b07}
+\label{sec:org1fc7bc8}
 L'algoritmo di apprendimento dipende da un insieme di parametri \uline{diversi} da quelli della rete neurale. Questi sono detti \uline{iperparametri}.
 
 Si utilizza la mimimizzazione del \uline{validation error} proprio per regolare gli iperparametri.
 \subsection{Alcuni esempi di algoritmi di apprendimento}
-\label{sec:org5ccdf8b}
+\label{sec:org6cf0759}
 
 \subsubsection{Regressione Lineare}
-\label{sec:org71041be}
+\label{sec:orgf65a927}
 \chapter{Cenni di Analisi Matematica}
-\label{sec:org3476f14}
+\label{sec:org35ebc84}
 
 \section{Teoria della misura}
-\label{sec:orgb88a416}
+\label{sec:org2a58170}
 
 \subsection{Funzioni sigmoidali e funzioni discriminatorie}
-\label{sec:org2e8370f}
+\label{sec:orgf739669}
 
 \begin{definizione}
 Una funzione \(\sigma:\R\to [0,1]\) si dice \uline{sigmoidale} se\footnote{Vedi ``\href{../../../../../org/roam/20250625110412-limite_analisi_matematica.org}{Limite (Analisi Matematica)}''}
@@ -610,10 +1001,10 @@ allora, per ogni \(\mu \in \mathcal{M}\),
 \end{equation*}
 \end{prop}
 \section{Minimizzazione}
-\label{sec:orgcafe860}
+\label{sec:org5ac1f88}
 
 \begin{definizione}
-
+\lipsum[1]
 \end{definizione}
 \begin{prop}
 \lipsum[1]
