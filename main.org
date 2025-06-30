@@ -70,6 +70,28 @@ Ecco alcuni semplici corollari del Teorema di Ascoli-Arzelà.
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630121612-wiener_s_tauberian_theorems.org::*Teoremi Tauberiani di Wiener"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630121612-wiener_s_tauberian_theorems.org::*Applicazioni dei Teoremi Tauberiani di Wiener al Machine Learning"
 
+* Apprendimento con input unidimensionale
+
+** Risultati preliminari
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630155015-ogni_funzione_semplice_e_combinazione_lineare_di_heaviside.org::*Ogni funzione semplice è combinazione lineare di Heaviside"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630155113-derivata_di_funzione_semplice_con_delta_di_dirac.org::*Derivata distribuzionale di una funzione semplice"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630155208-funzione_reale_continua_su_un_compatto_e_uniformemente_continua.org::*Teorema di Heine-Cantor"
+
+** Reti neurali che imparano funzioni continue
+
+*** One Hidden Layer Perceptron Network
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630154418-one_hidden_layer_perceptron_network_impara_funzioni_continue.org::*One Hidden Layer Perceptron Network impara funzioni continue"
+
+*** One Hidden Layer Sigmoid Network
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630154438-one_hidden_layer_sigmoid_network_impara_funzioni_continue.org::*One Hidden Layer Sigmoid Network impara funzioni continue"
+
+*** One Hidden Layer ReLU Network
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630154829-funzioni_continue_sono_approssimate_da_funzioni_lineari_a_tratti.org::*Funzioni continue sono approssimate da funzioni lineari a tratti"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630154858-one_hidden_layer_relu_network_impara_funzioni_continue.org::*One Hidden Layer ReLU Network impara funzioni continue"
 * ------------------------------------------------- PARTE III :ignore:
 
 #+BEGIN_EXPORT latex
