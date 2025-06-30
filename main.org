@@ -40,6 +40,35 @@
 \part{Cordero}
 #+END_EXPORT
 
+* Teoremi di approssimazione
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629105513-teoremi_di_dini_per_la_convergenza_uniforme.org::*Teoremi di Dini per la convergenza uniforme"
+
+** Teorema di Ascoli-Arzelà
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629110306-funzioni_uniformemente_limitate.org::*Famiglia di funzioni uniformemente limitata"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629113211-famiglia_di_funzioni_equicontinua.org::*Famiglia di funzioni equicontinua"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629120441-teorema_di_ascoli_arzela.org::*Teorema di Ascoli-Arzelà"
+
+Ecco alcuni semplici corollari del Teorema di Ascoli-Arzelà.
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629135114-rete_neurale_puo_approssimare_una_funzione_continua.org::*Teorema 1"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629135114-rete_neurale_puo_approssimare_una_funzione_continua.org::*Proposizione 2"
+
+** Teorema di Stone Weierstrass
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629165520-algebra_di_funzioni_reali.org::*Algebra di funzioni reali"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629151420-algebra_di_funzioni_separa_i_punti.org::*Algebra di funzioni reali separa i punti"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250629165421-teorema_di_stone_weierstrass.org::*Teorema di Stone-Weierstrass"
+
+*** Applicazioni alle reti neurali
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630103653-rete_neurale_che_approssima_funzioni_continue_periodiche.org::*Rete Neurale che approssima funzioni continue periodiche"
+
+** Teoremi Tauberiani di Wiener
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630121612-wiener_s_tauberian_theorems.org::*Teoremi Tauberiani di Wiener"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630121612-wiener_s_tauberian_theorems.org::*Applicazioni dei Teoremi Tauberiani di Wiener al Machine Learning"
 
 * ------------------------------------------------- PARTE III :ignore:
 
