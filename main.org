@@ -35,7 +35,15 @@
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250627130736-gradiente_e_perpendicolare_alle_curve_di_livello.org::*Gradiente è perpendicolare alle curve di livello"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250627130923-esistenza_di_una_curva_perpendicolare_a_tutte_le_curve_di_livello.org::*Esistenza di una curva perpendicolare a tutte le curve di livello"
 
+
 * -------------------------------------------------- PARTE II :ignore:
+
+#+BEGIN_EXPORT latex
+\part{Sirovich}
+#+END_EXPORT
+
+
+* ------------------------------------------------- PARTE III :ignore:
 
 #+BEGIN_EXPORT latex
 \part{Cordero}
@@ -99,11 +107,3 @@ Ecco alcuni semplici corollari del Teorema di Ascoli-Arzelà.
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630103725-funzioni_approssimate_da_una_rete_neurale.org::*One Hidden Layer softplus Network impara funzioni continue unidimensionali"
 
 * Universal Approximation
-
-
-
-* ------------------------------------------------- PARTE III :ignore:
-
-#+BEGIN_EXPORT latex
-\part{Sirovich}
-#+END_EXPORT
