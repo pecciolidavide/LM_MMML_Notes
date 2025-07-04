@@ -25,7 +25,7 @@
 *** Funzioni sigmoidali e funzioni discriminatorie
 
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625110110-funzione_sigmoidale.org::*Definizione"
-#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org::*Definizione"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org::*Definizione 1"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625110457-funzioni_sigmoidali_sono_discriminatorie_per_le_misure_di_baire_sul_cubo_unitario.org::*Proposizione"
 
 ** Minimizzazione
@@ -107,3 +107,26 @@ Ecco alcuni semplici corollari del Teorema di Ascoli-Arzelà.
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630103725-funzioni_approssimate_da_una_rete_neurale.org::*One Hidden Layer softplus Network impara funzioni continue unidimensionali"
 
 * Universal Approximation
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630103725-funzioni_approssimate_da_una_rete_neurale.org::*Approssimazione Universale (Rete Neurale)"
+
+** Teoremi di approssimazione universale
+
+*** Funzioni continue
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250704152055-teorema_di_hahn_banach.org::*Corollario"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630103725-funzioni_approssimate_da_una_rete_neurale.org::*One Hidden Layer Discriminatory Network impara funzioni continue sul cubo"
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630103725-funzioni_approssimate_da_una_rete_neurale.org::*Teorema Hidden Layer SigmaPi-Network"
+
+*** Funzioni \(L^{2}\)
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org::*Definizione 2"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630103725-funzioni_approssimate_da_una_rete_neurale.org::*One Hidden Layer Discriminatory Network impara funzioni L2 sul cubo"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250704154416-funzione_l2_nulla_se_integrale_nullo_su_tutti_i_semispazi.org::*Funzione L2 nulla se integrale nullo su tutti i semispazi"
+
+*** Funzioni \(L^{1}\)
+
+*** Funzioni Misurabili
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250704104537-spazio_delle_funzioni_misurabili_come_spazio_metrico.org::*Spazio delle funzioni misurabili come spazio metrico"
