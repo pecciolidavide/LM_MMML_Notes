@@ -71,7 +71,7 @@ Ecco alcuni semplici corollari del Teorema di Ascoli-Arzelà.
 
 *** Applicazioni alle reti neurali
 
-#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250704170145-rete_neurale_che_approssima_funzioni_continue_periodiche.org::*Rete Neurale che approssima funzioni continue periodiche"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250704170145-rete_neurale_che_approssima_funzioni_continue_periodiche.org::*Rete Neurale che approssima funzioni continue periodiche" :only-contents t
 
 ** Teoremi Tauberiani di Wiener
 
@@ -163,7 +163,7 @@ Ecco alcuni semplici corollari del Teorema di Ascoli-Arzelà.
 
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250708122516-rete_neurale_relu_feedforward_impara_esattamente_la_funzione_massimo.org::*Rete Neurale ReLU-feedforward rappresenta esattamente la funzione massimo tra N input"
 
-** Widht vs Depth
+** Width vs Depth
 
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250709134236-piu_profondita_in_favore_di_meno_larghezza_rete_neurale_relu_feedforward.org::*Più profondità in favore di meno larghezza - Rete Neurale ReLU-feedforward"
 
