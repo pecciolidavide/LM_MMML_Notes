@@ -1,4 +1,4 @@
-% Created 2025-07-04 Fri 16:23
+% Created 2025-07-09 Wed 15:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[10pt]{book}
 %% CREATO CON ORG - EMACS
@@ -301,10 +301,10 @@
 
 \part{De Rossi}
 \chapter{Reti Neurali}
-\label{sec:orgf228cf0}
+\label{sec:org36794a4}
 
 \section{Neurone Artificiale}
-\label{sec:org42f584d}
+\label{sec:org0026bd1}
 Un \uline{neurone} è una cellula del corpo umano che può essere schematizzata come segue:
 \begin{quote}
 A neuron is a cell which consists of the following parts: dendrites, axon,and body-cell. The synapse is the connection between the axon of one neuron and the dendrite of another. The functions of each part is briefly described below:
@@ -315,7 +315,7 @@ A neuron is a cell which consists of the following parts: dendrites, axon,and bo
 \end{itemize}
 \end{quote}
 
-Matematicamente, quindi, si considera un \(\Sigma\)-neurone come una unità che riceve degli input (un vettore \(\bm{x}\)), lo \href{../../../../../org/roam/20250625095723-prodotto_scalare.org}{moltiplica} per un vettore di pesi \(\bm{w} = (w_{0},\dots,w_{n})\), somma un certo \uline{bias}, e produce un output processando il prodotto scalare tramite una \uline{\hyperref[sec:org08fce50]{funzione di attivazione}}:
+Matematicamente, quindi, si considera un \(\Sigma\)-neurone come una unità che riceve degli input (un vettore \(\bm{x}\)), lo \href{../../../../../org/roam/20250625095723-prodotto_scalare.org}{moltiplica} per un vettore di pesi \(\bm{w} = (w_{0},\dots,w_{n})\), somma un certo \uline{bias}, e produce un output processando il prodotto scalare tramite una \uline{\hyperref[sec:org0042486]{funzione di attivazione}}:
 \begin{equation*}
 \begin{tikzcd}[ampersand replacement=\&,cramped]
 	{\text{Input: }\bm{x}} \\
@@ -330,7 +330,7 @@ Matematicamente, quindi, si considera un \(\Sigma\)-neurone come una unità che 
 
 Altri tipi di neuroni, invece, detti \(\Pi\)-neuroni, moltiplicano gli input.
 \subsection{Neurone Sigma-Heaviside}
-\label{sec:org16009ce}
+\label{sec:org56458ea}
 
 Il modello più semplice è quello che riceve degli input, li somma dopo averli moltiplicati per dei pesi, e:
 \begin{itemize}
@@ -373,7 +373,7 @@ H\left(\sum_{i=0}^{n} x_{i}\,w_{i}\right)=\begin{cases}
 \end{cases}
 \end{equation*}
 \subsection{Regressione Lineare}
-\label{sec:orgf78e461}
+\label{sec:org3bddb73}
 
 Un altro esempio di neurone è quello che approssima\footnote{Approssima in senso \(L^{2}\) (ovvero minimizza la \href{../../../../../org/roam/20250624162220-spazi_lp.org}{norma \(L^{2}\)} della differenza).} una \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua}
 \begin{equation*}
@@ -426,12 +426,12 @@ Dunque, posto che \(\rho\) sia \href{../../../../../org/roam/20250104111735-matr
 
 Nel caso di funzioni a valori in \(\R^{m}\) il problema si scompone nelle diverse coordinate.
 \section{Funzioni di attivazione}
-\label{sec:org08fce50}
-Nel Machine Learning le funzioni che agiscono nei \hyperref[sec:org42f584d]{neuroni} vengono dette \uline{funzioni di attivazione}. Se ne presentano alcuni esempi, con i loro nomi specifici.
+\label{sec:org0042486}
+Nel Machine Learning le funzioni che agiscono nei \hyperref[sec:org0026bd1]{neuroni} vengono dette \uline{funzioni di attivazione}. Se ne presentano alcuni esempi, con i loro nomi specifici.
 
 Sono tutte funzioni \(A \subseteq\R\to B \subseteq \R\).
 \subsection{Funzioni Lineari}
-\label{sec:org1c71075}
+\label{sec:org8352580}
 
 Tra le funzioni di attivazione utilizzate vi sono le seguenti funzioni lineari:
 \begin{itemize}
@@ -439,10 +439,10 @@ Tra le funzioni di attivazione utilizzate vi sono le seguenti funzioni lineari:
 \item la funzione identità \(x\mapsto x\).
 \end{itemize}
 \subsection{Step Functions}
-\label{sec:orgf596658}
+\label{sec:orgb6c9bc4}
 
 \subsubsection{Threshold step function}
-\label{sec:orgcf83ed7}
+\label{sec:orgeb5bbf0}
 
 La \href{../../../../../org/roam/20250624161413-funzione_di_heaviside.org}{funzione di Heaviside} (vedi Fig. \ref{fig:heav})
 \begin{equation*}
@@ -470,7 +470,7 @@ la cui derivata (nel senso delle \href{../../../../../org/roam/20250625100117-di
 \caption{La funzione di Heaviside}\label{fig:heav}
 \end{figure}
 \subsubsection{Bipolar step function}
-\label{sec:orgf54b3bd}
+\label{sec:org270edc0}
 
 La funzione segno: (vedi Fig. \ref{fig:bip})
 \begin{equation*}
@@ -495,10 +495,10 @@ S'(x) = 2H'(x)=2\delta(x)
 \caption{La funzione segno}\label{fig:bip}
 \end{figure}
 \subsection{Hockeystick Functions}
-\label{sec:org9ad95c0}
+\label{sec:org683b2c9}
 
 \subsubsection{Funzione di attivazione ReLU}
-\label{sec:org750abf4}
+\label{sec:orgbc4b1b1}
 La \emph{Rectified Linear Unit} (ReLU) è (vedi Fig. \ref{fig:relu})
 \begin{equation*}
 \operatorname{ReLU}(x) = xH(x) = \max\set{0,x}
@@ -517,7 +517,7 @@ e la sua derivata \(\operatorname{ReLU}'(x) = H(x)\).
 \caption{La funzione \(\operatorname{RELU}(x)\)}\label{fig:relu}
 \end{figure}
 \subsubsection{PReLU}
-\label{sec:org871236e}
+\label{sec:org0c386b5}
 
 La \emph{Parametric Rectivied Linear Unit} (PReLU) è (vedi Fig \ref{fig:prelu}), per \(\alpha>0\)
 \begin{equation*}
@@ -539,7 +539,7 @@ x & x \ge 0
 \caption{La funzione \(\operatorname{PRELU}_{2}(x)\)}\label{fig:prelu}
 \end{figure}
 \subsubsection{ELU}
-\label{sec:org9776b45}
+\label{sec:org00876b2}
 
 La \emph{Exponential Linear Units} (ELU) è (vedi Fig. \ref{fig:elu}):
 \begin{equation*}
@@ -561,7 +561,7 @@ x &x>0\\
 \caption{La funzione \(\operatorname{ELU}(\alpha,x)\)}\label{fig:elu}
 \end{figure}
 \subsubsection{SELU}
-\label{sec:orgb642924}
+\label{sec:org496b6f6}
 
 La \emph{Scaled Exponential Linear Units} (SELU) è (vedi Fig. \ref{fig:selu})
 \begin{equation*}
@@ -583,7 +583,7 @@ La \emph{Scaled Exponential Linear Units} (SELU) è (vedi Fig. \ref{fig:selu})
 \caption{La funzione \(\operatorname{SELU}(0.4,2,x)\)}\label{fig:selu}
 \end{figure}
 \subsubsection{SLU}
-\label{sec:org5b27187}
+\label{sec:orgbcfeb95}
 
 La \emph{Sigmoid Linear Units} (SLU) è (vedi Fig. \ref{fig:slu})
 \begin{equation*}
@@ -608,7 +608,7 @@ Spesso si usa anche la versione parametrica:
 \caption{La funzione \(\operatorname{SLU}(x)\)}\label{fig:slu}
 \end{figure}
 \subsubsection{Funzione Softplus}
-\label{sec:org37eb995}
+\label{sec:org76b44ce}
 Questa è una funzione positiva crescente, con \href{../../../../../org/roam/20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{range} \((0,+\infty)\): (vedi Fig. \ref{fig:sp})
 \begin{equation*}
 \operatorname{sp}(x) = \ln(1+e^{x}).
@@ -636,10 +636,10 @@ La sua derivata è
 \operatorname{sp}'(x) = \frac{1}{1+e^{-x}}>0.
 \end{equation*}
 \subsection{Funzioni Sigmoidali}
-\label{sec:orga9d9d6b}
+\label{sec:org301ee17}
 
 \subsubsection{Funzione Logistica}
-\label{sec:orgaa7d39d}
+\label{sec:org6886527}
 La funzione logistica è (vedi Fig. \ref{fig:logistic})
 \begin{equation*}
 \sigma_{c}(x) = \sigma(c;x) = \frac{1}{1+e^{-cx}}.
@@ -689,7 +689,7 @@ infatti:
 
 Spesso ci si rifesce a \(\sigma\coloneqq \sigma_{1}\) come alla \uline{funzione logistica} o \uline{funzione sigmoide} (in quanto è l'archetipo della \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{Funzione sigmoidale}).
 \subsubsection{Tangente Iperbolica}
-\label{sec:orgea41529}
+\label{sec:org5946589}
 
 La \uline{\href{../../../../../org/roam/20250627184228-funzioni_iperboliche.org}{tangente iperbolica}} \(\tanh(x)\) è (vedi Fig. \ref{fig:tanh})
 \begin{equation*}
@@ -715,7 +715,7 @@ Inoltre si ha che \(\tanh'(x) = 1-(\tanh(x))^{2}\):
 &= (\tanh(x)+1)(-\tanh(x)+1) = 1-(\tanh(x))^{2}
 \end{align*}
 \subsubsection{Arcotangente}
-\label{sec:org0aabe14}
+\label{sec:org8fc6c6b}
 
 È spesso utilizzata la seguente \href{../../../../../org/roam/20250627184319-funzioni_trigonometriche.org}{arcotangente} (vedi Fig. \ref{fig:arctan}):
 \begin{equation*}
@@ -733,7 +733,7 @@ h(x) = \frac{2}{\pi} \arctan(x) \qquad x \in \R.
 \caption{La funzione \(h(x)\)}\label{fig:arctan}
 \end{figure}
 \subsubsection{Softsign}
-\label{sec:orgdf438bc}
+\label{sec:org83bc95f}
 
 La seguente funzione differenziabile è la funzione \emph{softsign}: (vedi Fig. \ref{fig:softsign})
 \begin{equation*}
@@ -749,10 +749,10 @@ che ha raange \((-1,1)\).
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{La funzione \(\operatorname{so}(x)\)\)}\label{fig:softsign}
+\caption{La funzione \(\operatorname{so}(x)\)}\label{fig:softsign}
 \end{figure}
 \subsubsection{Piecewise Linear}
-\label{sec:org57e31f5}
+\label{sec:orgd3eb933}
 
 Dato un parametro \(\alpha>0\) (vedi Fig. \ref{fig:pieclin})
 \begin{equation*}
@@ -776,10 +776,10 @@ x/\alpha & -\alpha<x<\alpha\\
 \caption{La funzione \(f_{2}(x)\)}\label{fig:pieclin}
 \end{figure}
 \subsection{Bumped-type Functions}
-\label{sec:orge496fd0}
+\label{sec:org5432c98}
 
 \subsubsection{Gaussiana}
-\label{sec:orgafb9585}
+\label{sec:orgc4e232f}
 
 La funzione gaussiana mappa \(\R\) nell'intervallo \((0,1]\): (vedi Fig. \ref{fig:gauss})
 \begin{equation*}
@@ -797,7 +797,7 @@ g(x) = e^{-x^{2}},\qquad x \in \R.
 \caption{La funzione \(g(x)\)}\label{fig:gauss}
 \end{figure}
 \subsubsection{Doppio esponenziale}
-\label{sec:org93f0329}
+\label{sec:org6b43b3b}
 
 Mappa la retta reale nell'intervallo \((0,1]\) ed è definita: (vedi Fig. \ref{fig:dexp})
 \begin{equation*}
@@ -816,21 +816,152 @@ f(x) = e^{-\lambda\,|x|},\qquad x \in \R, \lambda>0.
 \caption{La funzione \(f(x)\) con parametro \(\lambda=2\)}\label{fig:dexp}
 \end{figure}
 \section{Rete Neurale}
-\label{sec:org3aeb766}
+\label{sec:org1346ff2}
 Una \uline{rete neurale} è [\ldots{}]
 
-Questa riceve degli \uline{input} e produce un \uline{output}, in base a certi parametri \(\bm{w}\), per simulare la \uline{FUNZIONE TARGET}; quest'ultima è l'obiettivo finale della Rete Neurale (ovvero si vuole far sì che l'output della rete neurale sia il più vicino possibile al risultato della funzione target).
+Questa riceve degli \uline{input} e produce un \uline{output} (dando luogo ad una \uline{funzione input-output}), in base a certi parametri \(\bm{w}\), per simulare la \uline{FUNZIONE TARGET}; quest'ultima è l'obiettivo finale della Rete Neurale (ovvero si vuole far sì che l'output della rete neurale sia il più vicino possibile al risultato della funzione target).
 
 Per misurare la distanza tra l'output di una rete e la funzione target si utilizza una \uline{funzione errore} (o \uline{funzione costo}), che deve essere scelta in base all'applicazione specifica.
 
-Il \uline{\hyperref[sec:orgff69118]{processo di apprendimento}} è quello che, partendo dai parametri \(\bm{w}\), li modifica (iterativamente), fino a dei parametri \(\bm{w}^{*}\), che sono \uline{ottimali}, nel senso che minimizzano la \uline{funzione errore}. Dunque il processo di apprendimento comporta la minimizzazione della funzione costo.
+Il \uline{\hyperref[sec:org25098bf]{processo di apprendimento}} è quello che, partendo dai parametri \(\bm{w}\), li modifica (iterativamente), fino a dei parametri \(\bm{w}^{*}\), che sono \uline{ottimali}, nel senso che minimizzano la \uline{funzione errore}. Dunque il processo di apprendimento comporta la minimizzazione della funzione costo.
 \subsection{Hidden Layer di una rete neurale}
-\label{sec:orgc00ad2f}
+\label{sec:org239d5ff}
+\subsection{Rete Neurale Feedforward}
+\label{sec:org9afed3b}
+\begin{definizione}
+Una \uline{rete neurale ReLU-feedforward} con input \(\bm{x} \in \R^{n}\) e output \(y \in \R^{m}\), illustrata in Fig.~\ref{fig:reluff}, è data da:
+\begin{itemize}
+\item \(L-1\) \href{../../../../../org/roam/20250202130045-insieme_dei_numeri_naturali_mk.org}{numeri naturali} \(\ell_{1},\dots,\ell_{L-1}\);
+\item \(L\) \href{../../../../../org/roam/20250129094132-trasformazione_affine.org}{funzioni affini} \(A_{1},\dots,A_{L}\) tali che
+\begin{align*}
+  A_{1}:\R^{n}&\to \R^{\ell_{1}}\\
+  A_{i}: \R^{\ell_{i-1}}&\to \R^{\ell_{i}}\\
+  A_{L}: \R^{\ell_{L-1}}&\to \R^{m}
+\end{align*}
+\end{itemize}
+L'output della rete è
+\begin{equation*}
+A_{L}\circ \operatorname{ReLU}\circ A_{L-1}\circ\dots\circ \operatorname{ReLU}\circ A_{1},
+\end{equation*}
+dove \(\operatorname{ReLU}\) è la versione multidimensionale della \hyperref[sec:orgbc4b1b1]{funzione di attivazione ReLU}, ovvero
+\begin{equation*}
+\operatorname{ReLU}(x_{1},\dots,x_{r}) = \left(\operatorname{ReLU}(x_{1}),\dots,\operatorname{ReLU}(x_{r})\right).
+\end{equation*}
+\label{def10.2.1}
+\end{definizione}
+
+Si utilizza la seguente nomenclatura:
+\begin{itemize}
+\item \(L\) è la \uline{profondità della rete neurale};
+\item la \uline{larghezza} della rete neurale è
+\begin{equation*}
+  w\coloneqq\max\set{\ell_{1},\dots,\ell_{L-1}}
+\end{equation*}
+mentre la \uline{larghezza} di un layer è \(\ell_{i}\);
+\item la \uline{dimensione} della rete neurale è
+\begin{equation*}
+  s=\ell_{1}+\dots+\ell_{L-1}
+\end{equation*}
+ovvero il numero di neuroni nascosti.
+\end{itemize}
+
+\begin{figure}
+\newcommand{\Lone}{1.5}
+\newcommand{\Ltwo}{3.0}
+\newcommand{\Lthree}{6.0}
+\newcommand{\Lhidden}{4.5}
+\newcommand{\outputorizzontale}{7.5}
+\begin{center}
+\scalebox{0.7}{
+\begin{tikzpicture}[x=2.5cm, y=1.2cm,
+    bullet/.style={circle, fill=black, inner sep=1.5pt},
+    neuron/.style={rectangle, draw, rounded corners, minimum width=1.2cm, minimum height=6mm, inner sep=1pt},
+    affine/.style={->, thick},
+    brace/.style={decorate,decoration={brace,amplitude=6pt},thick},
+    reverse brace/.style={decorate,decoration={brace,mirror,amplitude=6pt},thick}]
+
+% Inputs (x1 to xn)
+\node[bullet, label=left:$x_1$] (x1) at (0,1.2) {};
+\node[bullet, label=left:$x_2$] (x2) at (0,0.6) {};
+\node[bullet, label=left:$\vdots$] (xdots) at (0,0) {};
+\node[bullet, label=left:$x_n$] (xn) at (0,-1.2) {};
+
+% Brace grouping inputs
+\draw[brace] ([xshift=4pt, yshift=3pt]x1.north west) -- ([xshift=4pt, yshift=-3pt]xn.south west);
+
+% Hidden layer 1
+\node at (\Lone,2.0) {$\ell_1$};
+\node[neuron] (h11) at (\Lone,1.2) {ReLU};
+\node at (\Lone,0.6) {$\vdots$};
+\node[neuron] (h13) at (\Lone,0) {ReLU};
+\node at (\Lone,-0.6) {$\vdots$};
+\node[neuron] (h15) at (\Lone,-1.2) {ReLU};
+
+\draw[brace] ([xshift=6pt,yshift=3pt]h11.north east) -- ([xshift=6pt,yshift=-3pt]h15.south east);
+\draw[reverse brace] ([xshift=-6pt,yshift=3pt]h11.north west) -- ([xshift=-6pt,yshift=-3pt]h15.south west);
+
+% A_1 arrow
+\draw[affine] ([xshift=10pt]xdots.east) -- ([xshift=-15pt]h13.west) node[midway, above] {$A_1$};
+
+% Hidden layer 2
+\node at (\Ltwo,2.0) {$\ell_2$};
+\node[neuron] (h21) at (\Ltwo,1.2) {ReLU};
+\node at (\Ltwo,0.6) {$\vdots$};
+\node[neuron] (h23) at (\Ltwo,0) {ReLU};
+\node at (\Ltwo,-0.6) {$\vdots$};
+\node[neuron] (h25) at (\Ltwo,-1.2) {ReLU};
+
+\draw[brace] ([xshift=6pt,yshift=3pt]h21.north east) -- ([xshift=6pt,yshift=-3pt]h25.south east);
+\draw[reverse brace] ([xshift=-6pt,yshift=3pt]h21.north west) -- ([xshift=-6pt,yshift=-3pt]h25.south west);
+
+% A_2 arrow
+\draw[affine] ([xshift=18pt]h13.east) -- ([xshift=-18pt]h23.west) node[midway, above] {$A_2$};
+
+% Hidden layer L-1
+\node at (\Lthree,2.0) {$\ell_{L-1}$};
+\node[neuron] (hL1) at (\Lthree,1.2) {ReLU};
+\node at (\Lthree,0.6) {$\vdots$};
+\node[neuron] (hL3) at (\Lthree,0) {ReLU};
+\node at (\Lthree,-0.6) {$\vdots$};
+\node[neuron] (hL5) at (\Lthree,-1.2) {ReLU};
+
+\draw[brace] ([xshift=6pt,yshift=3pt]hL1.north east) -- ([xshift=6pt,yshift=-3pt]hL5.south east);
+\draw[reverse brace] ([xshift=-6pt,yshift=3pt]hL1.north west) -- ([xshift=-6pt,yshift=-3pt]hL5.south west);
+
+% Other Hidden Layers
+
+\node (Layerdots) at (\Lhidden,0) {$\dots$};
+
+% A_{3} arrow
+\draw[affine] ([xshift=20pt]h23.east) -- ([xshift=-3pt]Layerdots.west) node[midway, above] {$A_{3}$};
+
+% A_{L-1} arrow
+\draw[affine] ([xshift=3pt]Layerdots.east) -- ([xshift=-20pt]hL3.west) node[midway, above] {$A_{L-1}$};
+
+% Final output layer
+\node[bullet, label=right:$y_1$] (y1) at (\outputorizzontale,1.2) {};
+\node[bullet, label=right:$\vdots$] (ydots) at (\outputorizzontale,0) {};
+\node[bullet, label=right:$y_m$] (ym) at (\outputorizzontale,-1.2) {};
+
+\draw[reverse brace] ([xshift=-4pt, yshift=3pt]y1.north east) -- ([xshift=-4pt, yshift=-3pt]ym.south east);
+
+% Arrow to output
+\draw[affine] ([xshift=20pt]hL3.east) -- ([xshift=-10pt]ydots.west) node[midway, above] {$A_{L}$};;
+
+
+% Parentesi sotto
+\draw[reverse brace, thin] ([xshift=-30pt]\Lone, -1.7) -- ([xshift=30pt]\Lthree, -1.7) node[midway, below, yshift=-6pt] {$L-1$ hidden layers};
+
+\end{tikzpicture}
+}
+\end{center}
+\caption{\label{fig:reluff}Una rete neurale ReLU-feedforward}
+\end{figure}
 \section{Funzioni costo (Machine Learning)}
-\label{sec:org1f28b58}
+\label{sec:orgc8dc08a}
 Una funzione costo è una funzione che misura, dati certi parametri \(\bm{w}\) di una rete neurale, \uline{quanto la rete neurale si discosta dalla funzione target}.
 \subsection{La Funzione Errore Supremum}
-\label{sec:org0ed2e99}
+\label{sec:org38300bf}
 
 Una rete neurale prende input \(x \in [0,1]\) e deve imparare una data funzione continua \(\phi:[0,1]\to [0,1]\).
 
@@ -846,7 +977,7 @@ Se la funzione \(\phi\) è conosciuta solo per \(N\) valori \(x_{1},\dots,x_{N}\
 C(\bm{w},b) \coloneqq \max_{i=1,\dots, N} |f_{\bm{w},b}(x_{i})-\phi(x_{i})|.
 \end{equation*}
 \subsection{La Funzione Errore Norma L2}
-\label{sec:org1be724a}
+\label{sec:orgb12bb2d}
 
 Una rete neurale prende input \(x \in [0,1]\) e deve imparare una data funzione \(\phi:[0,1]\to \R\) tale che
 \begin{equation*}
@@ -867,7 +998,7 @@ allora, posti \(\bm{z}=(z_{1},\dots,z_{N})\) e \(\bm{x} = (x_{1},\dots,x_{N})\),
 C(\bm{w},\bm{b}) = \norma{\bm{z}-f_{\bm{w},\bm{b}}(\bm{x})}^{2} = \sum_{i=1}^{N} |z_{i}-f_{\bm{w},\bm{b}}(x_{i})|^{2}
 \end{equation*}
 \subsubsection{Interpretazione Geometrica}
-\label{sec:orgd2e38bb}
+\label{sec:orga61e77e}
 
 Fissati \(\bm{x}\) e \(\bm{z}\), la mappa \((\bm{w},\bm{b})\mapsto f_{\bm{w},\bm{b}}(\bm{x})\) rappresenta una ipersuperficie in \(\R^{N}\):
 \begin{equation*}
@@ -900,8 +1031,8 @@ Queste sono le \uline{equazioni normali}, che operativamente diventano
 \sum_{i=1}^{N} (f_{\bm{w},\bm{b}}(x_{i})-z_{i})\cdot \restriction{\partial_{b_{j}} f_{\bm{w},\bm{b}} (x_{i})}{(\bm{w},\bm{b}) = (\bm{w}^{*},\bm{b}^{*})} &= 0
 \end{align*}
 \subsection{Regolarizzazione della Funzione Costo (Machine Learning)}
-\label{sec:org2a58769}
-Per evitare il fenomeno dell'\href{../../../../../org/roam/20250627103519-overfitting.org}{overfitting}, è bene mantenere i parametri \uline{piccoli}. Pertanto, data una \hyperref[sec:org1f28b58]{funzione costo} \(C(\bm{w})\), la si \uline{regolarizza}, utilizzando una funzione costo \(G(\bm{w})\), data da \(C(\bm{w})\) più un termine di regolarizzazione.
+\label{sec:orgb8d13fd}
+Per evitare il fenomeno dell'\href{../../../../../org/roam/20250627103519-overfitting.org}{overfitting}, è bene mantenere i parametri \uline{piccoli}. Pertanto, data una \hyperref[sec:orgc8dc08a]{funzione costo} \(C(\bm{w})\), la si \uline{regolarizza}, utilizzando una funzione costo \(G(\bm{w})\), data da \(C(\bm{w})\) più un termine di regolarizzazione.
 
 \begin{description}
 \item[{Regolarizzazione \(L^{2}\).}] Si aggiunge alla funzione \(C(\bm{w})\) la \href{../../../../../org/roam/20250627104832-p_norma_in_rn.org}{2-norma} in \(\R^{n}\) dei parametri:
@@ -928,8 +1059,8 @@ La funzione costo regolarizzata diventa:
 Il potenziale deve essere scelto in maniera tale che l'errore, utilizzando \(G\), sia \uline{minore} che utilizzando \(C\).
 \end{description}
 \section{Processo di apprendimento di una rete neurale}
-\label{sec:orgff69118}
-L'apprendimento di una \hyperref[sec:org3aeb766]{rete neurale} è il processo di ricerca dei parametri ottimali per approssimare la funzione target. Questo è un processo iterativo algoritmico, che genera una \href{../../../../../org/roam/20250206170922-sequenze_e_stringhe.org}{sequenza} \((w_{t})\) di parametri. Poiché si parla di numeri immensi di elementi in questa sequenza, spesso ci si riferisce a \(t\) come una sorta di variabile temporale continua.
+\label{sec:org25098bf}
+L'apprendimento di una \hyperref[sec:org1346ff2]{rete neurale} è il processo di ricerca dei parametri ottimali per approssimare la funzione target. Questo è un processo iterativo algoritmico, che genera una \href{../../../../../org/roam/20250206170922-sequenze_e_stringhe.org}{sequenza} \((w_{t})\) di parametri. Poiché si parla di numeri immensi di elementi in questa sequenza, spesso ci si riferisce a \(t\) come una sorta di variabile temporale continua.
 
 Si vuole allenare un modello per replicare una funzione target di cui si conoscono \(N\) valori: \(\set{(x_{i},z_{i})}\), minimizzando la funzione costo \(C(\bm{w})\).
 
@@ -947,7 +1078,7 @@ Si suppone che siano identicamente distribuiti, e che siano indipendenti. Si ott
 \item \uline{validation error \(C_{\mathcal{V}}(\bm{w})\)}: è il valore della funzione costo utilizzando i valori della funzione target presi dal validation set.
 \end{itemize}
 \subsection{Errori di Training e di Test}
-\label{sec:org1cfbd1d}
+\label{sec:org9e7aac1}
 Con un qualche algoritmo si trova il valore \(\bm{w}^{*}\) che minimizza \(C_{\mathcal{T}}\). Successivamente, si calcola \(C_{\mathrm{T}}(\bm{w}^{*})\), e generalmente vale:
 \begin{equation*}
 	C_{\mathcal{T}}(\bm{w}^{*}) \le C_{\mathrm{T}}(\bm{w}^{*})
@@ -961,25 +1092,25 @@ Ci sono tre possibili scenari, a questo punto:
 
 Pertanto si utilizza il \uline{test set} per verificare che i valori dei parametri trovati sul training set siano sufficientemente generalizzabili.
 \subsection{Iperparametri di un processo di apprendimento}
-\label{sec:org922b3d7}
+\label{sec:orged111e5}
 L'algoritmo di apprendimento dipende da un insieme di parametri \uline{diversi} da quelli della rete neurale. Questi sono detti \uline{iperparametri}.
 
 Si utilizza la mimimizzazione del \uline{validation error} proprio per regolare gli iperparametri.
 \subsection{Alcuni esempi di algoritmi di apprendimento}
-\label{sec:org4c6d8eb}
+\label{sec:org6057ed5}
 
 \subsubsection{Algoritmo di Regressione Lineare (Machine Learning)}
-\label{sec:org4cbf5cb}
+\label{sec:org09ae096}
 \subsubsection{Algoritmo di Gradient Descent}
-\label{sec:orgbeaa447}
+\label{sec:org0bbc34c}
 \chapter{Cenni di Analisi Matematica}
-\label{sec:org7d597c1}
+\label{sec:orgf5bc763}
 
 \section{Teoria della misura}
-\label{sec:orgeeb189b}
+\label{sec:org4dd8f52}
 
 \subsection{Funzioni sigmoidali e funzioni discriminatorie}
-\label{sec:org694193c}
+\label{sec:org274006b}
 
 \begin{definizione}
 Una funzione \(\sigma:\R\to [0,1]\) si dice \uline{sigmoidale} se\footnote{Vedi ``\href{../../../../../org/roam/20250625110412-limite_analisi_matematica.org}{Limite (Analisi Matematica)}''}
@@ -990,7 +1121,7 @@ Una funzione \(\sigma:\R\to [0,1]\) si dice \uline{sigmoidale} se\footnote{Vedi 
 \begin{definizione}
 Sia \(\mathcal{M}\) la famiglia delle \href{../../../../../org/roam/20250625104200-misura_di_baire.org}{misure di Baire} per \(\R^{n}\) sul cubo \(I^{n} \coloneqq [0,1]^{n} \subseteq \R\), \href{../../../../../org/roam/20250625110016-misura_finita.org}{finite}, \href{../../../../../org/roam/20250625110024-misura_con_segno.org}{con segno} e \href{../../../../../org/roam/20250625110032-misura_regolare.org}{regolari}.
 
-Una funzione \(f: \R\to \R\) si dice \uline{discriminatoria per \(\mathcal{M}\)} se per ogni \(\mu \in \mathcal{M}\):
+Una funzione \(f: \R\to \R\) si dice \uline{discriminatoria} se per ogni \(\mu \in \mathcal{M}\):
 \begin{equation*}
 \left(\forall \bm{w} \in \R^{n},\, \forall \theta \in \R\quad \int_{I^{n}} f(\bm{w}\cdot\bm{x}) \dif \mu(\bm{x}) = 0\right)\implies \mu=0
 \end{equation*}
@@ -1008,7 +1139,7 @@ allora, per ogni \(\mu \in \mathcal{M}\),
 \end{equation*}
 \end{prop}
 \section{Minimizzazione}
-\label{sec:org7e37f55}
+\label{sec:orgcced605}
 
 \begin{definizione}
 \lipsum[1]
@@ -1066,10 +1197,10 @@ e pertanto \(g''(0) = H_{f}(c)\bm{v}\cdot\bm{v}>0\).\qedhere
 \part{Sirovich}
 \part{Cordero}
 \chapter{Teoremi di approssimazione}
-\label{sec:org21a8894}
+\label{sec:org8633272}
 
 \section{Teoremi di Dini per la convergenza uniforme}
-\label{sec:org9846ec8}
+\label{sec:orgfce3934}
 \begin{thm}
 Sia \(f_{n}:[a,b]\to \R\) una \href{../../../../../org/roam/20250629105815-successione_di_funzioni.org}{successione di funzioni} \href{../../../../../org/roam/20250103103252-funzione_continua.org}{continue}.
 \begin{enumerate}
@@ -1086,7 +1217,7 @@ allora \(f_{n}\) \href{../../../../../org/roam/20250629105745-convergenza_unifor
 \end{enumerate}
 \end{thm}
 \section{Teorema di Ascoli-Arzelà}
-\label{sec:orgad2779a}
+\label{sec:org9d4a0b3}
 
 \begin{definizione}
 Una famiglia di funzioni \(\mathcal{F}\) da un insieme \(A\) a valori reali si dice \uline{uniformemente limitata} (\emph{uniformly bounded}) se esiste \(M > 0\) tale che
@@ -1155,7 +1286,7 @@ Allora \(\mathcal{F}\) è equicontinua. Infatti:
 \end{itemize}
 Per l'esempio precedente, si ottieene la tesi.
 
-Si noti, inoltre, che se \(\sigma\) è la \hyperref[sec:org08fce50]{sigmoide} logistica, allora la derivata massima è ottenuto in \(x=0\) e vale
+Si noti, inoltre, che se \(\sigma\) è la \hyperref[sec:org0042486]{sigmoide} logistica, allora la derivata massima è ottenuto in \(x=0\) e vale
 \begin{equation*}
 \sigma'(0) = \sigma(0)\,(1-\sigma(0)) = \frac{1}{4}<1.
 \end{equation*}
@@ -1171,12 +1302,12 @@ Sia \(\mathcal{F}\) una famiglia di funzioni continue su \([a,b]\) a valori real
 Ecco alcuni semplici corollari del Teorema di Ascoli-Arzelà.
 
 \begin{thm}
-Sia \(N\ge {1}\) un intero fissato, e si consideri una \hyperref[sec:org3aeb766]{rete neurale} con un \hyperref[sec:orgc00ad2f]{layer nascosto} tale che:
+Sia \(N\ge {1}\) un intero fissato, e si consideri una \hyperref[sec:org1346ff2]{rete neurale} con un \hyperref[sec:org239d5ff]{layer nascosto} tale che:
 \begin{enumerate}
 \item l'input della rete sia una variabile reale \(x \in [a,b]\);
-\item l'output della rete sia un \hyperref[sec:org42f584d]{neurone} unidimensionale con \hyperref[sec:org08fce50]{funzione di attivazione lineare} e zero bias;
+\item l'output della rete sia un \hyperref[sec:org0026bd1]{neurone} unidimensionale con \hyperref[sec:org0042486]{funzione di attivazione lineare} e zero bias;
 \item ci sono \(N\) neuroni nel layer nascosti con una funzione di attivazione differenziabile tale che \(|\sigma'|<\lambda<1\);
-\item i pesi soddisfano la condizione di \hyperref[sec:org2a58769]{regolarizzazione}:
+\item i pesi soddisfano la condizione di \hyperref[sec:orgb8d13fd]{regolarizzazione}:
 \begin{equation*}
  \sum_{j=1}^{N} (\alpha_{j}^{2} + w_{j}^{2})\le 1
 \end{equation*}
@@ -1193,11 +1324,11 @@ Con una banale applicazione del \href{../../../../../org/roam/20250629120441-teo
 \end{proof}
 
 \begin{prop}
-Anche per una \hyperref[sec:org3aeb766]{rete neurale} composta da un unico \hyperref[sec:org42f584d]{neurone}, con output
+Anche per una \hyperref[sec:org1346ff2]{rete neurale} composta da un unico \hyperref[sec:org0026bd1]{neurone}, con output
 \begin{equation*}
 f_{\bm{w},b}(\bm{x}) = \sigma(\bm{w}\cdot\bm{x} + b)
 \end{equation*}
-dove \(\sigma\) è la \hyperref[sec:orgaa7d39d]{funzione logistica}, con pesi \(\bm{w} \in \R^{n}, b \in \R\) e input \(\bm{x} \in I_{n} \coloneqq [0,1]^{n}\), esiste una \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua} \(g:I^{n}\to \R\) che può essere approssimata. Si supponga che \(\norma{\bm{w}}\le 1\).
+dove \(\sigma\) è la \hyperref[sec:org6886527]{funzione logistica}, con pesi \(\bm{w} \in \R^{n}, b \in \R\) e input \(\bm{x} \in I_{n} \coloneqq [0,1]^{n}\), esiste una \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua} \(g:I^{n}\to \R\) che può essere approssimata. Si supponga che \(\norma{\bm{w}}\le 1\).
 \end{prop}
 
 
@@ -1217,7 +1348,7 @@ Infatti, la famiglia di funzioni continue
 Con una banale applicazione del \href{../../../../../org/roam/20250629120441-teorema_di_ascoli_arzela.org}{Teorema di Ascoli-Arzelà}, si ottiene che ogni \href{../../../../../org/roam/20250629105815-successione_di_funzioni.org}{successione} di funzioni output ammette una sottosuccessione \href{../../../../../org/roam/20250629105745-convergenza_uniforme.org}{convergente uniformemente} ad una funzione continua; quest'ultima, data la uniforme convergenza, viene approssimata dalla rete con un grado di accuratezza arbitrario.
 \end{proof}
 \section{Teorema di Stone Weierstrass}
-\label{sec:orgc2ba12a}
+\label{sec:org0e2dc93}
 
 \begin{definizione}
 Sia \(\mathcal{F}\) un insieme di \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzioni} con lo stesso \href{../../../../../org/roam/20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{dominio}, a \href{../../../../../org/roam/20250202173528-dominio_range_e_campo_di_una_classe_relazione.org}{valori} in \(\R\). \(\mathcal{F}\) si dice un'\uline{algebra di funzioni reali} se, per ogni \(f,g \in \mathcal{F}\) e \(c \in \R\):
@@ -1260,21 +1391,21 @@ Ovviamente \(\mathcal{A}\) è una \(\R\)-\href{../../../../../org/roam/202506291
 Inoltre \(1 \in \mathcal{A}\), e pertanto \(\mathcal{A}\) contiene tutte le funzioni costanti.
 \end{esempio}
 \begin{thm}
-Sia \(K \subseteq \R^{n}\) \href{../../../../../org/roam/20250103163701-spazio_topologico_compatto.org}{compatto}, e sia \(\mathcal{A} \subseteq C(K)\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''\label{orgd4b3fe3}} una \href{../../../../../org/roam/20250629165520-algebra_di_funzioni_reali.org}{\(\R\)-algebra}. Se
+Sia \(K \subseteq \R^{n}\) \href{../../../../../org/roam/20250103163701-spazio_topologico_compatto.org}{compatto}, e sia \(\mathcal{A} \subseteq C(K)\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''\label{org2e278d7}} una \href{../../../../../org/roam/20250629165520-algebra_di_funzioni_reali.org}{\(\R\)-algebra}. Se
 \begin{enumerate}
 \item \(\mathcal{A}\) separa i punti di \(K\);
 \item \(\mathcal{A}\) contiene le funzioni costanti;
 \end{enumerate}
-allora \(\mathcal{A}\) è un \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{sottoinsieme denso} di \(C(K)\) munito della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica}\footnote{Tale massimo esiste per il \href{../../../../../org/roam/20250627153319-teorema_di_weierstrass.org}{Teorema di Weierstrass}\label{org8259938}}:
+allora \(\mathcal{A}\) è un \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{sottoinsieme denso} di \(C(K)\) munito della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica}\footnote{Tale massimo esiste per il \href{../../../../../org/roam/20250627153319-teorema_di_weierstrass.org}{Teorema di Weierstrass}\label{orgfb9087e}}:
 \begin{equation*}
 \forall f,g \in C(K):\quad d(f,g) \coloneqq \max_{x \in K} |f(x)-g(x)|.
 \end{equation*}
 \end{thm}
 \subsection{Corollari del teorema}
-\label{sec:org5fb63a5}
+\label{sec:orgd1c3340}
 
 \begin{prop}
-Sia \([a,b] \subseteq \R\), e si consideri \(C([a,b])\)\textsuperscript{\ref{orgd4b3fe3}} munito della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica}\textsuperscript{\ref{org8259938}}:
+Sia \([a,b] \subseteq \R\), e si consideri \(C([a,b])\)\textsuperscript{\ref{org2e278d7}} munito della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica}\textsuperscript{\ref{orgfb9087e}}:
 \begin{equation*}
 \forall f,g \in C(K):\quad d(f,g) \coloneqq \max_{x \in [a,b]} |f(x)-g(x)|.
 \end{equation*}
@@ -1294,7 +1425,7 @@ Allora \(\mathcal{A}\) è \href{../../../../../org/roam/20250301193045-sottoinsi
 \end{proof}
 
 \begin{prop}
-Sia \(f:[a,b]\times[c,d]\to \R\) una funzione continua. Allora, per ogni \(\varepsilon>0\) esiste \(N\ge 1\) ed esistono, per ogni \(i=1,\dots,N\), delle \(g_{i} \in C([a,b])\)\textsuperscript{\ref{orgd4b3fe3}} e \(h_{i} \in C([c,d])\) tali che
+Sia \(f:[a,b]\times[c,d]\to \R\) una funzione continua. Allora, per ogni \(\varepsilon>0\) esiste \(N\ge 1\) ed esistono, per ogni \(i=1,\dots,N\), delle \(g_{i} \in C([a,b])\)\textsuperscript{\ref{org2e278d7}} e \(h_{i} \in C([c,d])\) tali che
 \begin{equation*}
 \max_{\substack{
 x \in [a,b]\\
@@ -1321,10 +1452,12 @@ Se \((x_{0},y_{0})\neq (x_{1},y_{1})\):
 \end{itemize}
 \end{proof}
 \subsection{Applicazioni alle reti neurali}
-\label{sec:org6ce73f3}
+\label{sec:org09d3ee1}
 
+\subsubsection{Rete Neurale che approssima funzioni continue periodiche}
+\label{sec:org04d660e}
 \begin{prop}
-Per ogni \href{../../../../../org/roam/20250630103918-funzione_periodica.org}{funzione periodica} \(F:\R\to \R\) esiste una \hyperref[sec:org3aeb766]{rete neurale} che la approssima.
+Per ogni \href{../../../../../org/roam/20250630103918-funzione_periodica.org}{funzione periodica} \(F:\R\to \R\) esiste una \hyperref[sec:org1346ff2]{rete neurale} che la approssima.
 \end{prop}
 
 \begin{proof}
@@ -1343,7 +1476,7 @@ Si noti che per ogni \(f \in \mathcal{A}\)
 f(0) = f(T).
 \end{equation*}
 
-L'insieme \(\mathcal{A} \subseteq C([0,T])\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''\label{orga823bed}}, ed inoltre è una \href{../../../../../org/roam/20250629165520-algebra_di_funzioni_reali.org}{\(\R\)-algebra}\footnote{Questo si vede facilmente seguendo l'Esempio di ``\href{../../../../../org/roam/20250629165520-algebra_di_funzioni_reali.org}{Algebra di funzioni reali}''}. Contiene tutte le funzioni costanti (basta porre \(a_{j}=c_{j} = 0\) per ogni \(j>0\)), e separa i punti, in quanto
+L'insieme \(\mathcal{A} \subseteq C([0,T])\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''}, ed inoltre è una \href{../../../../../org/roam/20250629165520-algebra_di_funzioni_reali.org}{\(\R\)-algebra}\footnote{Questo si vede facilmente seguendo l'Esempio di ``\href{../../../../../org/roam/20250629165520-algebra_di_funzioni_reali.org}{Algebra di funzioni reali}''}. Contiene tutte le funzioni costanti (basta porre \(a_{j}=c_{j} = 0\) per ogni \(j>0\)), e separa i punti, in quanto
 \begin{equation*}
 g(x) = \cos\left(\frac{\pi}{T}\,x\right) \in \mathcal{A}
 \end{equation*}
@@ -1358,7 +1491,7 @@ G(x) \coloneqq a_{0}+\sum_{j=1}^{N} a_{j}\cos\left(\frac{2\pi}{T}\,jx\right) + c
 Si consideri una rete neurale fatta come segue:
 \begin{itemize}
 \item input: \(x \in \R\);
-\item un \hyperref[sec:orgc00ad2f]{layer nascosto} con \(N\) neuroni con funzione di attivazione \(\cos\), con peso dall'input \(w_{j}\) e bias \(b_{j}\);
+\item un \hyperref[sec:org239d5ff]{layer nascosto} con \(N\) neuroni con funzione di attivazione \(\cos\), con peso dall'input \(w_{j}\) e bias \(b_{j}\);
 \item il neurone di output con funzione di attivazione lineare, bias \(a_{0}\) e pesi dall'hidden layer \(\alpha_{j}\).
 \end{itemize}
 Questa rete è rappresentata in Fig. \ref{fig:retperiod} e produce output
@@ -1416,7 +1549,7 @@ y &=  a_{0} + \sum_{j=1}^{N}\alpha_{j}\cos(w_{j}x+b_{j})\\
 \caption{La rete neurale considerata}\label{fig:retperiod}
 \end{figure}
 \section{Teoremi Tauberiani di Wiener}
-\label{sec:org105bf7f}
+\label{sec:orgb9f750d}
 
 Si consideri l'operatore funzionale
 \begin{equation*}
@@ -1424,7 +1557,7 @@ T_{\theta}: f(x)\mapsto f(x-\theta).
 \end{equation*}
 
 \begin{thm}
-Sia \(f \in L^{1}(\R)\)\footnote{Vedi ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}''\label{org7b5c937}}. Lo \href{../../../../../org/roam/20250630122400-span.org}{span} di \(\set{T_{\theta}f\mid \theta \in \R}\) è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(L^{1}(\R)\) se e solo se la \href{../../../../../org/roam/20250630121906-trasformata_di_fourier.org}{trasformata di Fourier}:
+Sia \(f \in L^{1}(\R)\)\footnote{Vedi ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}''\label{org9a872ce}}. Lo \href{../../../../../org/roam/20250630122400-span.org}{span} di \(\set{T_{\theta}f\mid \theta \in \R}\) è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(L^{1}(\R)\) se e solo se la \href{../../../../../org/roam/20250630121906-trasformata_di_fourier.org}{trasformata di Fourier}:
 \begin{equation*}
 \forall \xi \in \R:\qquad \hat{f}(\xi) \neq 0
 \end{equation*}
@@ -1432,7 +1565,7 @@ Sia \(f \in L^{1}(\R)\)\footnote{Vedi ``\href{../../../../../org/roam/2025062416
 \end{thm}
 
 \begin{thm}
-Sia \(f \in L^{2}(\R)\)\textsuperscript{\ref{org7b5c937}}. Lo \href{../../../../../org/roam/20250630122400-span.org}{span} di \(\set{T_{\theta}f\mid \theta \in \R}\) è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(L^{2}(\R)\) se e solo se gli zeri della \href{../../../../../org/roam/20250630121906-trasformata_di_fourier.org}{trasformata di Fourier}\footnote{Vedi ``\href{../../../../../org/roam/20250630122745-proprieta_vera_quasi_ovunque.org}{Proprietà vera quasi ovunque}''}
+Sia \(f \in L^{2}(\R)\)\textsuperscript{\ref{org9a872ce}}. Lo \href{../../../../../org/roam/20250630122400-span.org}{span} di \(\set{T_{\theta}f\mid \theta \in \R}\) è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(L^{2}(\R)\) se e solo se gli zeri della \href{../../../../../org/roam/20250630121906-trasformata_di_fourier.org}{trasformata di Fourier}\footnote{Vedi ``\href{../../../../../org/roam/20250630122745-proprieta_vera_quasi_ovunque.org}{Proprietà vera quasi ovunque}''}
 \begin{equation*}
 \hat{f}(\xi) \neq 0\text{ q.o. }\xi \in \R
 \end{equation*}
@@ -1443,7 +1576,7 @@ ovvero per la \href{../../../../../org/roam/20250630122824-misura_di_lebesgue.or
 \label{teo:wt2}
 \end{thm}
 \subsection{Applicazioni dei Teoremi Tauberiani di Wiener al Machine Learning}
-\label{sec:org6a6d560}
+\label{sec:org5fd863d}
 \begin{enumerate}
 \item Sia \(g \in L^{1}(\R)\), e sia \(f \in L^{1}(\R)\) tale che
 \begin{equation*}
@@ -1457,7 +1590,7 @@ Allora, per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per \(j=1,\d
   \int_{\R}|g(x)-G(x)|\dif x<\varepsilon.
 \end{gather*}
 
-La funzione \(G(x)\) è l'output di una \hyperref[sec:org3aeb766]{rete neurale} con un \hyperref[sec:orgc00ad2f]{layer nascosto} di \(N\) neuroni (e neurone di output lineare), dove i \hyperref[sec:org42f584d]{neuroni} del layer nascosto hanno funzione di attivazione \(f\).
+La funzione \(G(x)\) è l'output di una \hyperref[sec:org1346ff2]{rete neurale} con un \hyperref[sec:org239d5ff]{layer nascosto} di \(N\) neuroni (e neurone di output lineare), dove i \hyperref[sec:org0026bd1]{neuroni} del layer nascosto hanno funzione di attivazione \(f\).
 \item Sia \(g \in L^{2}(\R)\), e sia \(f \in L^{2}(\R)\) tale che
 \begin{equation*}
   \mu\left(\set{\xi \in \R\mid f(\xi)=0}\right)=0
@@ -1470,10 +1603,10 @@ Allora, per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per \(j=1,\d
   \int_{\R}(g(x)-G(x))^{2}\dif x<\varepsilon.
 \end{gather*}
 
-La funzione \(G(x)\) è l'output di una \hyperref[sec:org3aeb766]{rete neurale} con un \hyperref[sec:orgc00ad2f]{layer nascosto} di \(N\) neuroni (e neurone di output lineare), dove i \hyperref[sec:org42f584d]{neuroni} del layer nascosto hanno funzione di attivazione \(f\).
+La funzione \(G(x)\) è l'output di una \hyperref[sec:org1346ff2]{rete neurale} con un \hyperref[sec:org239d5ff]{layer nascosto} di \(N\) neuroni (e neurone di output lineare), dove i \hyperref[sec:org0026bd1]{neuroni} del layer nascosto hanno funzione di attivazione \(f\).
 \end{enumerate}
 
-Si noti che le seguenti \hyperref[sec:org08fce50]{funzioni di attivazione} soddisfano le ipotesi dei Teoremi \ref{teo:wt1} e \ref{teo:wt2}.
+Si noti che le seguenti \hyperref[sec:org0042486]{funzioni di attivazione} soddisfano le ipotesi dei Teoremi \ref{teo:wt1} e \ref{teo:wt2}.
 \begin{description}
 \item[{Doppio esponenziale.}] Sia \(f(x) = e^{-\lambda|x|}\), con \(\lambda>0\).
 \begin{equation*}
@@ -1537,10 +1670,10 @@ e quindi per ogni \(\xi \in \R\) si ha che \(\hat{f}(\xi)\neq \emptyset\).
 Dunque \(f\) soddisfa le condizioni dei Teoremi \ref{teo:wt1} e \ref{teo:wt2}.
 \end{description}
 \chapter{Apprendimento con input unidimensionale}
-\label{sec:org542aae0}
+\label{sec:org66c6526}
 
 \section{Risultati preliminari}
-\label{sec:org6afde50}
+\label{sec:org8bf2acd}
 
 \begin{prop}
 Sia \(0=x_{0}<x_{1}<\dots<x_{N}=1\) una partizione di \([0,1]\), e sia\footnote{Con \(\chi_{A}\) si intende la \href{../../../../../org/roam/20250215160218-funzione_caratteristica.org}{funzione caratteristica} di \(A\).}
@@ -1610,13 +1743,12 @@ Se \(M\) è \href{../../../../../org/roam/20250103163701-spazio_topologico_compa
 In particolare, se \(g:[a,b]\to \R\) è continua, allora è uniformemente continua\footnote{Perché \([a,b]\) è compatto per il \href{../../../../../org/roam/20250701121640-teorema_di_heine_borel.org}{Teorema di Heine-Borel}.}.
 \end{cor}
 \section{Reti neurali che imparano funzioni continue}
-\label{sec:org25279af}
+\label{sec:org5971c2e}
 
 \subsection{One Hidden Layer Perceptron Network}
-\label{sec:org18af059}
-
+\label{sec:org8efe088}
 \begin{thm}
-Per ogni funzione \(g \in C[0,1]\)\textsuperscript{\ref{orga823bed}} e per ogni \(\varepsilon>0\) esistono \(0=x_{0}<x_{1}<\dots<x_{N} = 1\) ed esistono \(c_{i} \in \R\) tali che, posta\footnote{Questa è una \href{../../../../../org/roam/20250701140621-funzione_costante_a_tratti.org}{Funzione costante a tratti}}
+Per ogni funzione \(g \in C[0,1]\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''} e per ogni \(\varepsilon>0\) esistono \(0=x_{0}<x_{1}<\dots<x_{N} = 1\) ed esistono \(c_{i} \in \R\) tali che, posta\footnote{Questa è una \href{../../../../../org/roam/20250701140621-funzione_costante_a_tratti.org}{Funzione costante a tratti}}
 \begin{equation*}
 c(x) = \sum_{i=0}^{N-1} c_{i} H(x-x_{i})
 \end{equation*}
@@ -1662,7 +1794,7 @@ dove l'ultima condizione deriva dall'uniforme continuità di \(g\). Per l'arbitr
 
 
 \begin{oss}
-La funzione \(c(x)\) di cui sopra è la funzione output di una \hyperref[sec:org3aeb766]{rete neurale} con un layer nascosto:
+La funzione \(c(x)\) di cui sopra è la funzione output di una \hyperref[sec:org1346ff2]{rete neurale} con un layer nascosto:
 \begin{itemize}
 \item i pesi dall'input ai neuroni nascosti sono \(w_{i} = 1\);
 \item ci sono \(N\) neuroni nascosti con funzione di attivazione \(H(x)\) e bias \(\theta_{i} = -x_{i}\);
@@ -1670,8 +1802,8 @@ La funzione \(c(x)\) di cui sopra è la funzione output di una \hyperref[sec:org
 \item il neurone di output è lineare.
 \end{itemize}
 \end{oss}
-\subsection{One Hidden Layer Sigmoid Network}
-\label{sec:org2dd54fe}
+\subsection{One Hidden Layer Sigmoidal Network}
+\label{sec:orgaff6920}
 
 \begin{thm}
 Sia \(\varphi:\R\to \R\) tale che
@@ -1681,14 +1813,14 @@ Sia \(\varphi:\R\to \R\) tale che
 \item \(\varphi\) sia \href{../../../../../org/roam/20250627155431-funzione_derivabile.org}{derivabile}, con \(|\varphi'(x)|\) limitata.
 \end{enumerate}
 
-Sia \(g \in C[0,1]\)\textsuperscript{\ref{orga823bed}}. Allora per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per ogni \(i=0,\dots,N\) degli \(c_{i}, \theta_{i}, w \in \R\) tali che
+Sia \(g \in C[0,1]\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''}. Allora per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per ogni \(i=0,\dots,N\) degli \(c_{i}, \theta_{i}, w \in \R\) tali che
 \begin{equation*}
 \forall  x \in [0,1]\qquad \bigg\lvert g(x) - \sum_{i=1}^{N} c_{i}\varphi(wx_{i} + \theta_{i})\bigg\rvert <\varepsilon
 \end{equation*}
 \end{thm}
 
 \begin{oss}
-In particolare, tutte le \hyperref[sec:org08fce50]{funzioni di attivazione} \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidali} \(\varphi\) rispettano le ipotesi.
+In particolare, tutte le \hyperref[sec:org0042486]{funzioni di attivazione} \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidali} \(\varphi\) rispettano le ipotesi.
 \end{oss}
 
 \begin{proof}
@@ -1703,7 +1835,7 @@ Si divide la dimostrazione in fasi:
 Vedi Theorem 8.3.1 di \cite{calinDeepLearningArchitectures2020}
 \end{proof}
 \subsection{One Hidden Layer ReLU Network}
-\label{sec:org1858692}
+\label{sec:org002d8ef}
 
 \begin{prop}
 Sia \(g:[a,b]\to \R\) una funzione continua. Allora, per ogni \(\varepsilon>0\) esiste una partizione equidistante di \([a,b]\):
@@ -1742,7 +1874,7 @@ e la funzione lineare a tratti, per \(i=1,\dots,\):
 \end{description}
 \end{proof}
 \begin{thm}
-Si consideri la \hyperref[sec:org08fce50]{funzione di attivazione} \(\operatorname{ReLU}(x) = x\,H(x)\)\footnote{Dove \(H(x)\) è la \href{../../../../../org/roam/20250624161413-funzione_di_heaviside.org}{Funzione di Heaviside}}. Allora per ogni \(g \in C[0,1]\)\textsuperscript{\ref{orga823bed}} esiste \(N \in \N\) ed esistono, per \(i=0,\dots,N-1\) degli \(\alpha_{i}, \theta_{i}, \beta \in \R\) tali che, detta
+Si consideri la \hyperref[sec:org0042486]{funzione di attivazione} \(\operatorname{ReLU}(x) = x\,H(x)\)\footnote{Dove \(H(x)\) è la \href{../../../../../org/roam/20250624161413-funzione_di_heaviside.org}{Funzione di Heaviside}}. Allora per ogni \(g \in C[0,1]\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''} esiste \(N \in \N\) ed esistono, per \(i=0,\dots,N-1\) degli \(\alpha_{i}, \theta_{i}, \beta \in \R\) tali che, detta
 \begin{equation*}
 G(x) \coloneqq \beta+\sum_{i=0}^{N-1} \alpha_{i}\operatorname{ReLU}(x+\theta_{i})
 \end{equation*}
@@ -1752,14 +1884,14 @@ si ha che
 \end{equation*}
 \end{thm}
 \subsection{One Hidden Layer softplus Network}
-\label{sec:orgc7a5b43}
+\label{sec:org61d5d34}
 
 \begin{lem}
-La \hyperref[sec:org08fce50]{funzione di attivazione} \emph{\hyperref[sec:org37eb995]{softplus}} \(\operatorname{sp}(x)\) è data dalla \href{../../../../../org/roam/20250703105424-prodotto_di_convoluzione.org}{convoluzione}:\footnote{Vedi la \hyperref[sec:org750abf4]{funzione \(\operatorname{ReLU}\)}}
+La \hyperref[sec:org0042486]{funzione di attivazione} \emph{\hyperref[sec:org76b44ce]{softplus}} \(\operatorname{sp}(x)\) è data dalla \href{../../../../../org/roam/20250703105424-prodotto_di_convoluzione.org}{convoluzione}:\footnote{Vedi la \hyperref[sec:orgbc4b1b1]{funzione \(\operatorname{ReLU}\)}}
 \begin{equation*}
 \operatorname{sp}(x) = \convolution{\operatorname{ReLU}}{K}(x) = \int_{-\infty}^{+\infty} \operatorname{ReLU}(\tau) K(x-\tau)\dif\tau
 \end{equation*}
-dove \(K(x) = \frac{1}{(1+e^{x})(1+e^{-x})} = \sigma'(x)\)\footnote{Dove \(\sigma(x)\) è la \hyperref[sec:orgaa7d39d]{Funzione Logistica}.}.
+dove \(K(x) = \frac{1}{(1+e^{x})(1+e^{-x})} = \sigma'(x)\)\footnote{Dove \(\sigma(x)\) è la \hyperref[sec:org6886527]{Funzione Logistica}.}.
 \end{lem}
 
 \begin{lem}
@@ -1775,7 +1907,7 @@ Allora \(\int_{-\infty}^{+\infty} K_{\alpha}(x)\dif x= 1\) e \(\mu_{\alpha}\to \
 \end{lem}
 
 \begin{lem}
-Si definisca ora la \hyperref[sec:org37eb995]{funzione softplus} scalata:
+Si definisca ora la \hyperref[sec:org76b44ce]{funzione softplus} scalata:
 \begin{equation*}
 \varphi_{\alpha}(x) \coloneqq \alpha \operatorname{sp}\left(\frac{x}{\alpha}\right) = \alpha\ln(1
 + e^{x/\alpha})
@@ -1817,68 +1949,207 @@ puntualmente, e \(\varphi_{\alpha}<\varphi_{\beta}\) se \(\alpha>\beta\).
 \end{proof}
 
 \begin{thm}
-Sia \(g \in C[0,1]\)\textsuperscript{\ref{orga823bed}}. Allora per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per ogni \(i=0,\dots,N-1\), degli \(c_{j},w,\theta_{j},\beta \in \R\) tali che
+Sia \(g \in C[0,1]\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''}. Allora per ogni \(\varepsilon>0\) esiste \(N \in \N\) ed esistono, per ogni \(i=0,\dots,N-1\), degli \(c_{j},w,\theta_{j},\beta \in \R\) tali che
 \begin{equation*}
 \forall x \in [0,1]\qquad \bigg\lvert g(x)-\sum_{j=0}^{N-1}c_{j}\operatorname{sp}(wx-\theta_{j})-\beta\bigg\rvert<\varepsilon.
 \end{equation*}
 \end{thm}
 \chapter{Universal Approximation}
-\label{sec:orgb0ce816}
+\label{sec:orga9bc255}
 
 \begin{definizione}
-Sia \((\mathcal{S}, d)\) uno \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{spazio metrico} di \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzioni}. Una \hyperref[sec:org3aeb766]{rete neurale} è un \uline{approssimatore universale} per \(\mathcal{S}\) se lo spazio \(\mathcal{U}\) delle funzioni output della r.n. è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(\mathcal{S}\).
+Sia \((\mathcal{S}, d)\) uno \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{spazio metrico} di \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzioni}. Una \hyperref[sec:org1346ff2]{rete neurale} è un \uline{approssimatore universale} per \(\mathcal{S}\) se lo spazio \(\mathcal{U}\) delle funzioni output della r.n. è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(\mathcal{S}\).
 
 Lo spazio \(\mathcal{U}\) si dice \uline{spazio di approssimazione} dello \uline{spazio target} \(\mathcal{S}\).
 \end{definizione}
 \section{Teoremi di approssimazione universale}
-\label{sec:orgedb5602}
-
-\subsection{Funzioni continue}
-\label{sec:org74ef143}
+\label{sec:org53df96f}
 
 \begin{cor}
-\lipsum[2]
+Sia \((\mathcal{X}, \norma{\cdot})\) uno \href{../../../../../org/roam/20241205142027-spazio_vettoriale.org}{spazio vettoriale} \href{../../../../../org/roam/20250625123506-spazio_normato.org}{normato}, e sia \(\mathcal{U} \subseteq \mathcal{X}\) un \href{../../../../../org/roam/20250114103118-sottospazio_vettoriale.org}{sottospazio vettoriale} non \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso}.
+
+Allora esiste un funzionale \href{../../../../../org/roam/20250114101949-funzione_lineare.org}{lineare} \href{../../../../../org/roam/20250704145518-funzione_limitata.org}{limitato}
+\begin{equation*}
+L:\mathcal{X}\to \R
+\end{equation*}
+tale che \(L\neq 0\) e la \href{../../../../../org/roam/20250205170515-restrizione_di_una_classe.org}{restrizione} \(\restriction{L}{\mathcal{U}} = 0\).
 \label{lem:9.3.2}
 \end{cor}
+\subsection{Funzioni continue}
+\label{sec:org512f32f}
+
+\begin{definizione}
+Sia \(\mathcal{M}\) la famiglia delle \href{../../../../../org/roam/20250625104200-misura_di_baire.org}{misure di Baire} per \(\R^{n}\) sul cubo \(I^{n} \coloneqq [0,1]^{n} \subseteq \R\), \href{../../../../../org/roam/20250625110016-misura_finita.org}{finite}, \href{../../../../../org/roam/20250625110024-misura_con_segno.org}{con segno} e \href{../../../../../org/roam/20250625110032-misura_regolare.org}{regolari}.
+
+Una funzione \(f: \R\to \R\) si dice \uline{discriminatoria} se per ogni \(\mu \in \mathcal{M}\):
+\begin{equation*}
+\left(\forall \bm{w} \in \R^{n},\, \forall \theta \in \R\quad \int_{I^{n}} f(\bm{w}\cdot\bm{x}) \dif \mu(\bm{x}) = 0\right)\implies \mu=0
+\end{equation*}
+\end{definizione}
+
 \begin{lem}
-\lipsum[1]
+Sia \(I_{n}\coloneqq[0,1]^{n}\), e si consideri \(C(I_{n})\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''\label{org44be9d0}} dotato della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
+Sia \(\mathcal{M}\) la famiglia delle \href{../../../../../org/roam/20250625104200-misura_di_baire.org}{misure di Baire} per \(\R^{n}\) sul cubo \(I^{n}\R\), \href{../../../../../org/roam/20250625110016-misura_finita.org}{finite}, \href{../../../../../org/roam/20250625110024-misura_con_segno.org}{con segno} e \href{../../../../../org/roam/20250625110032-misura_regolare.org}{regolari}.
+
+Sia \(\mathcal{U} \subseteq C(I_{n})\) un \href{../../../../../org/roam/20250114103118-sottospazio_vettoriale.org}{sottospazio vettoriale} non \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso}. Allora esiste una \href{../../../../../org/roam/20250704163455-misura.org}{misura} \(\mu \in \mathcal{M}\) tale che
+\begin{equation*}
+\forall  h \in \mathcal{U}:\qquad \int_{I_{n}} h(x)\dif\mu = 0
+\end{equation*}
 \label{lem:9.3.3}
 \end{lem}
 
 \begin{prop}
-\lipsum[1]
+Sia \(\sigma\) una \href{../../../../../org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org}{funzione discriminatoria} e \href{../../../../../org/roam/20250103103252-funzione_continua.org}{continua}. Allora l'insieme
+\begin{equation*}
+\set{G(x) = \sum_{i =1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j}, \theta_{j} \in \R}
+\end{equation*}
+è denso in \(C(I_{n})\)\textsuperscript{\ref{org44be9d0}} dotato della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
 \label{prop9.3.5}
 \end{prop}
 
 \begin{thm}
-\lipsum[1]
+Sia \(\sigma:\R\to [0,1]\) una funzione \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidale}. Allora l'insieme
+\begin{equation*}
+\set{G(x) = \sum_{i =1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j}, \theta_{j} \in \R}
+\end{equation*}
+è denso in \(C(I_{n})\)\textsuperscript{\ref{org44be9d0}} dotato della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
 \label{teo9.3.6}
 \end{thm}
+
+Il teorema continua a valere anche in questa forma:
+\begin{thm}
+Sia \(\sigma:\R\to [0,1]\) una funzione \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidale}. Allora l'insieme
+\begin{equation*}
+\set{G(x) = \sum_{i =1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j}, \theta_{j} \in \R}
+\end{equation*}
+è denso in \(C(K)\) dotato della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in K} |f(x)-g(x)| = \max_{x \in K}|f(x)-g(x)|,
+\end{equation*}
+per ogni \(K\) \href{../../../../../org/roam/20250103163701-spazio_topologico_compatto.org}{compatto} di \(\R^{n}\).
+\end{thm}
+Una \hyperref[sec:org1346ff2]{rete} \(\Sigma\Pi\) contiene sia \hyperref[sec:org0026bd1]{neuroni} \(\Sigma\) che neuroni \(\Pi\).
 
 \begin{thm}
-\lipsum[1]
-\label{teo9.3.6}
+Sia \(I_{n}\coloneqq[0,1]^{n}\), e si consideri \(C(I_{n})\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''} dotato della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
+
+Sia \(\varphi: \R\to \R\) una qualsiasi \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua} non costante. Allora le funzioni nella forma
+\begin{equation*}
+G(x) = \sum_{k=1}^{M} \beta_{k}\prod_{j=1}^{N_{k}}\varphi(\bm{w}_{jk}\cdot \bm{x} + \theta_{jk}),\qquad G:I_{n}\to \R
+\end{equation*}
+con \(\bm{w}_{jk} \in \R^{n}\), \(\beta_{j},\theta_{jk} \in \R\), \(M,N_{k} \in \N\), sono \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{dense} in \(C(I_{n})\)
+\label{teo9.3.8}
 \end{thm}
 \subsection{Funzioni \(L^{2}\)}
-\label{sec:org4b65aa5}
+\label{sec:orga37128f}
 
 \begin{definizione}
-\lipsum[1]
+Una funzione \(\sigma:\R\to \R\) si dice \uline{discriminatoria in senso \(L^{2}\)} se:
+\begin{enumerate}
+\item \(\forall x \in \R\ 0\le \sigma(x)\le 1\);
+\item se \(g \in L^{2}(I_{n})\)\footnote{Con \(I_{n}\) si indica il cubo
+\begin{equation*}
+I_{n} = [0,1]\times \dots \times [0,1] = [0,1]^{n}.
+\end{equation*}
+Si vedano ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}''\label{org8c22223}} e
+\begin{equation*}
+ \forall \bm{w} \in \R^{n}\ \forall \theta \in \R:\qquad\int_{I_{n}} \sigma(\bm{w}\cdot\bm{x} + \theta)g(\bm{x})\dif\bm{x} = 0
+\end{equation*}
+allora \(g=0\)
+\end{enumerate}
 \label{def9.3.10}
 \end{definizione}
+
+\begin{esempio}
+La funzione logistica \(\displaystyle\sigma(x) = \frac{1}{1+e^{-x}}\) è discriminatoria in senso \(L^{2}\).
+\label{ex9.3.15}
+\end{esempio}
+
 \begin{prop}
-\lipsum[1]
+Sia \(\sigma:\R\to\R\) una \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} \href{../../../../../org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org}{discriminatoria in senso \(L^{2}\)}. Allora l'insieme
+\begin{equation*}
+\set{
+G(\bm{x}) = \sum_{j=1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j},\theta_{j} \in \R
+}
+\end{equation*}
+è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(L^{2}(I_{n})\)\footnote{Con \(I_{n}\) si indica il cubo
+\begin{equation*}
+I_{n} = [0,1]\times \dots \times [0,1] = [0,1]^{n}.
+\end{equation*}
+Si vedano ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}''}.
 \label{prop9.3.11}
 \end{prop}
+
 \begin{lem}
-\lipsum[1]
+Sia \(g \in L^{1}(I_{n})\)\footnote{Con \(I_{n}\) si indica il cubo
+\begin{equation*}
+I_{n} = [0,1]\times \dots \times [0,1] = [0,1]^{n}.
+\end{equation*}
+Si vedano ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}''}. Se per ogni \(\bm{w} \in \R^{n}\) e per ogni \(\theta \in \R\), detto \(\mathcal{H}_{\bm{w},\theta} \coloneqq \set{x \in I_{n}\mid \bm{w}\cdot\bm{x}+\theta>0}\) il semispazio, si ha che
+\begin{equation*}
+\int_{\mathcal{H}_{\bm{w},\theta}} g(\bm{x})\dif\bm{x} = 0
+\end{equation*}
+allora \(g=0\) \href{../../../../../org/roam/20250630122745-proprieta_vera_quasi_ovunque.org}{q.o.}
 \label{lem9.3.12}
 \end{lem}
 \subsection{Funzioni \(L^{1}\)}
-\label{sec:org8a65fe5}
+\label{sec:orgfda8abc}
 
+\begin{definizione}
+Una \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} \(\sigma:\R\to \R\) si dice \uline{discriminatoria in senso \(L^{1}\)} se:
+\begin{enumerate}
+\item \(\sigma\) è \href{../../../../../org/roam/20250704104947-funzione_misurabile.org}{misurabile} e \href{../../../../../org/roam/20250704145518-funzione_limitata.org}{limitata};
+\item \(\sigma\) è \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidale};
+\item se \(g \in L^{\infty}(I_{n})\)\textsuperscript{\ref{org8c22223}} e
+\begin{equation*}
+ \forall \bm{w} \in \R^{n}\ \forall \theta \in \R:\qquad\int_{I_{n}} \sigma(\bm{w}\cdot\bm{x} + \theta)g(\bm{x})\dif\bm{x} = 0
+\end{equation*}
+allora \(g=0\)
+\end{enumerate}
+\label{def9.3.16}
+\end{definizione}
+
+\begin{prop}
+Sia \(\sigma:\R\to\R\) una \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} \href{../../../../../org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org}{discriminatoria in senso \(L^{1}\)}. Allora l'insieme
+\begin{equation*}
+\set{
+G(\bm{x}) = \sum_{j=1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j},\theta_{j} \in \R
+}
+\end{equation*}
+è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(L^{1}(I_{n})\)\footnote{Con \(I_{n}\) si indica il cubo
+\begin{equation*}
+I_{n} = [0,1]\times \dots \times [0,1] = [0,1]^{n}.
+\end{equation*}
+Si vedano ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}''\label{org3474d49}}.
+\label{prop9.3.17}
+\end{prop}
+
+Siccome ogni \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidale}, \href{../../../../../org/roam/20250704104947-funzione_misurabile.org}{misurabile} e \href{../../../../../org/roam/20250704145518-funzione_limitata.org}{limitata} è \href{../../../../../org/roam/20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.org}{discriminatoria in senso \(L^{1}\)}, segue il corollario.
+
+\begin{cor}
+Sia \(\sigma:\R\to\R\) una \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidale}, \href{../../../../../org/roam/20250704104947-funzione_misurabile.org}{misurabile} e \href{../../../../../org/roam/20250704145518-funzione_limitata.org}{limitata}. Allora l'insieme
+\begin{equation*}
+\set{
+G(\bm{x}) = \sum_{j=1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j},\theta_{j} \in \R
+}
+\end{equation*}
+è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} in \(L^{1}(I_{n})\)\textsuperscript{\ref{org3474d49}}.
+\label{thm9.3.18}
+\end{cor}
 \subsection{Funzioni Misurabili}
-\label{sec:orgda5b527}
+\label{sec:org9380741}
 
 Sia \(\mathcal{M}^{n}\) lo spazio delle funzioni \href{../../../../../org/roam/20250704104938-algebra_di_borel.org}{Borel}-\href{../../../../../org/roam/20250704104947-funzione_misurabile.org}{misurabili}:
 \begin{equation*}
@@ -1896,4 +2167,295 @@ Quindi \((\mathcal{M}^{n},d_{\mu})\) è uno \href{../../../../../org/roam/202503
 \begin{equation*}
 d_{\mu}(f,g) = \inf\set{\varepsilon>0\mid \mu\left(\set{x \in \R^{n}: |f(x)-g(x)|>\varepsilon}\right)<\varepsilon}.
 \end{equation*}
+Pertanto \(\mathcal{M}^{n}\) è dotato di una \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica}.
+Si ricorda che lo \href{../../../../../org/roam/20250704104947-funzione_misurabile.org}{spazio delle funzioni misurabili} \(\mathcal{M}^{n}\) è dotato di una \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{distanza} \(d_{\mu}\) per ogni \href{../../../../../org/roam/20250704163455-misura.org}{misura} \href{../../../../../org/roam/20250704105515-misura_di_probabilita.org}{di probabilità} \(\mu\) su \(\R^{n}\)\footnote{Vedi ``\href{../../../../../org/roam/20250704104537-spazio_delle_funzioni_misurabili_come_spazio_metrico.org}{Spazio delle funzioni misurabili come spazio metrico}''}.
+
+\begin{lem}
+Per ogni \(j \in \N\) sia \(f_{j} \in \mathcal{M}^{n}\), e sia \(g \in \mathcal{M}^{n}\). Sono fatti equivalenti:
+\begin{enumerate}
+\item \(d_{\mu}(f_{j},g)\to 0\) per \(j\to\infty\);
+\item per ogni \(\varepsilon>0\),
+\begin{equation*}
+ \mu\left(
+ 	\set{x \in \R^{n}\mid |f_{j}(x)-g(x)|>\varepsilon}
+ \right)\to 0\qquad j\to \infty;
+\end{equation*}
+\item \(\displaystyle \int_{\R^{n}} \min\left(|f_{j}(x)-g(x)|, 1\right) \dif x \to 0\) per \(j\to\infty\).
+\end{enumerate}
+\label{lem9.3.20}
+\end{lem}
+Si ricorda che lo \href{../../../../../org/roam/20250704104947-funzione_misurabile.org}{spazio delle funzioni misurabili} \(\mathcal{M}^{n}\) è dotato di una \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{distanza} \(d_{\mu}\) per ogni \href{../../../../../org/roam/20250704163455-misura.org}{misura} \(\mu\) su \(\R^{n}\)\footnote{Vedi ``\href{../../../../../org/roam/20250704104537-spazio_delle_funzioni_misurabili_come_spazio_metrico.org}{Spazio delle funzioni misurabili come spazio metrico}''}.
+
+\begin{prop}
+Sia \((f_{j})_{j} \subseteq \mathcal{M}^{n}\) una \href{../../../../../org/roam/20250629105815-successione_di_funzioni.org}{successione di funzioni} in \(\mathcal{M}^{n}\) che \href{../../../../../org/roam/20250706121659-convergenza_uniforme_sui_compatti.org}{converge uniformemente sui compatti} a \(f\), ovvero tale che, per ogni \(K \subseteq \R^{n}\) compatto
+\begin{equation*}
+\sup_{x \in K} |f_{j}(x)-f(x)|\to 0,\quad j\to\infty.
+\end{equation*}
+
+Allora \(d_{\mu}(f_{j},f)\to 0\) per \(j\to \infty\).
+\label{prop9.3.21}
+\end{prop}
+\begin{thm}
+Sia \(\sigma:\R\to\R\) una \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} \href{../../../../../org/roam/20250103103252-funzione_continua.org}{continua} e \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidale}. Allora l'insieme
+\begin{equation*}
+\mathcal{G} =\set{
+G(\bm{x}) = \sum_{j=1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j},\theta_{j} \in \R
+}
+\end{equation*}
+è uniformemente \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} sui compatti in \(C(\R^{n})\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''. Si considera \(C(\R^{n})\) dotato della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+d(f,g) \coloneqq \sup_{x \in \R^{n}} |f(x)-g(x)|.
+\end{equation*}}, ovvero per ogni \(f \in C(\R^{n})\) esiste una successione di funzioni \((G_{m})_{m} \subseteq \mathcal{G}\) tale che \(G_{m}\to f\) \href{../../../../../org/roam/20250706121659-convergenza_uniforme_sui_compatti.org}{uniformemente} su ogni \href{../../../../../org/roam/20250103163701-spazio_topologico_compatto.org}{compatto} \(K \subseteq \R^{n}\), per \(m\to\infty\).
+\label{thm9.3.22}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\item Si applica il \href{../../../../../org/roam/20250706121659-ohldn_f_continue.org}{Teorema di Cybenko}, che vale per ogni \(K\) compatto di \(\R^{n}\), costruendo per ogni \(f \in C(K)\) una successione
+\begin{equation*}
+ G_{j}^{(K)}\to f\text{ uniformemente su }K
+\end{equation*}
+\textbf{\textbf{tale che \(\sup_{x \in K}|G_{j}^{(K)}(x)-f(x)|<1/j\)}}.
+\item Si costruisce una successione crescente di compatti \(K_{j}\to \R^{n}\).
+\item Per ogni \(f \in C(\R^{n}) \subseteq C(K_{i})\) si ottengono applicando 1. \(\omega\) successioni \(G_{j}^{(i)}\to f\) uniformemente per \(j\to \infty\) su \(K_{i}\).
+
+La successione \(G_{m}\coloneqq G_{m}^{(m)}\) è quella cercata.
+\end{enumerate}
+\end{proof}
+\begin{thm}
+Sia \(\sigma:\R\to\R\) una \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} \href{../../../../../org/roam/20250103103252-funzione_continua.org}{continua} e \href{../../../../../org/roam/20250625110110-funzione_sigmoidale.org}{sigmoidale}. Allora l'insieme
+\begin{equation*}
+\mathcal{G} =\set{
+G(\bm{x}) = \sum_{j=1}^{N}\alpha_{j}\sigma(\bm{w}_{j}\cdot \bm{x} + \theta_{j})\mid N \in \N, \bm{w}_{j} \in \R^{n}, \alpha_{j},\theta_{j} \in \R
+}
+\end{equation*}
+è, per ogni \href{../../../../../org/roam/20250704105515-misura_di_probabilita.org}{misura di probabilità} \(\mu\) su \(\R^{n}\), \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{denso} nello \href{../../../../../org/roam/20250704104947-funzione_misurabile.org}{spazio delle funzioni misurabili} \(\mathcal{M}^{n}\)\footnote{Si considera \(\mathcal{M}^{n}\) dotato della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta dalla metrica} \href{../../../../../org/roam/20250704104537-spazio_delle_funzioni_misurabili_come_spazio_metrico.org}{indotta da \(\mu\)}.}.
+\label{thm9.3.24}
+\end{thm}
+
+Questo segue banalmente dal fatto che \(C(\R^{n})\) sia denso in \(\mathcal{M}^{n}\).
+\subsection{Funzioni \(L^{q}\)}
+\label{sec:orgbf247bf}
+
+\begin{prop}
+La famiglia delle \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzioni} \href{../../../../../org/roam/20250103103252-funzione_continua.org}{continue} a \href{../../../../../org/roam/20250701115005-supporto_di_una_funzione.org}{supporto} \href{../../../../../org/roam/20250103163701-spazio_topologico_compatto.org}{compatto}
+\begin{equation*}
+\set{f:\R^{n}\to \R\mid f\text{ continua a supporto compatto}}
+\end{equation*}
+è \href{../../../../../org/roam/20250301193045-sottoinsieme_denso.org}{densa} in \(L^{q}(\R^{n})\) per ogni \(q \in [1,+ \infty)\)\footnote{Vedi ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}''}.
+\end{prop}
+\begin{prop}
+La famiglia delle funzioni continue e \href{../../../../../org/roam/20250701140551-funzione_lineare_a_tratti.org}{lineari a tratti} \(\R^{n}\to \R\) è densa nella famiglia delle \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzioni} \href{../../../../../org/roam/20250103103252-funzione_continua.org}{continue} a \href{../../../../../org/roam/20250701115005-supporto_di_una_funzione.org}{supporto} \href{../../../../../org/roam/20250103163701-spazio_topologico_compatto.org}{compatto} con la \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{distanza}
+\begin{equation*}
+d(f,g) = \sup_{x \in \R^{n}}|f(x)-g(x)|
+\end{equation*}
+\end{prop}
+\begin{thm}
+Ogni funzione in \(L^{q}(\R^{n})\)\footnote{Vedi ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}''} può essere approssimata arbitrariamente bene nella norma \(\norma{\cdot}_{q}\) da una \hyperref[sec:org1346ff2]{rete neurale} \hyperref[sec:org9afed3b]{feedforward} \hyperref[sec:orgbc4b1b1]{ReLU}.
+\end{thm}
+\subsection{Accuratezza dell'approssimazione}
+\label{sec:orgb4d206b}
+
+Si consideri una \hyperref[sec:org1346ff2]{rete neurale} con un \hyperref[sec:org239d5ff]{layer nascosto} contenente \(N\) \hyperref[sec:org0026bd1]{neuroni}, che produce un output \(G(x)\), che vuole \href{../../../../../org/roam/20250630103725-funzioni_approssimate_da_una_rete_neurale.org}{approssimare} \(f\) in uno spazio funzionale quale\footnote{Sia \(I_{n}\coloneqq[0,1]^{n}\). Vedi
+\begin{itemize}
+\item ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}'' e ``\href{../../../../../org/roam/20250706121659-ohldn_f_continue.org}{One Hidden Layer Discriminatory Network impara funzioni continue sul cubo}''.
+\item Si consideri \(C(I_{n})\) dotato della \href{../../../../../org/roam/20250103145124-topologia.org}{topologia} \href{../../../../../org/roam/20250301193530-topologia_indotta_da_una_distanza.org}{indotta} dalla \href{../../../../../org/roam/20250301193511-spazio_metrico.org}{metrica}
+\begin{equation*}
+  d(f,g) \coloneqq \sup_{x \in I_{n}} |f(x)-g(x)| = \max_{x \in I_{n}}|f(x)-g(x)|.
+\end{equation*}
+\item ``\href{../../../../../org/roam/20250624162220-spazi_lp.org}{Spazi Lp}'' e
+\begin{itemize}
+\item ``\href{../../../../../org/roam/20250706121659-ohldnl1.org}{One Hidden Layer Discriminatory Network impara funzioni L1 sul cubo}''
+\item ``\href{../../../../../org/roam/20250706121659-ohldnl2.org}{One Hidden Layer Discriminatory Network impara funzioni L2 sul cubo}''
+\end{itemize}
+\end{itemize}}
+\begin{equation*}
+C(I_{n}),\quad L_{1}(I_{n}), \quad L_{2}(I_{n})
+\end{equation*}
+
+\uline{In che modo \(N\) influenza l'accuratezza dell'approssimazione?}
+
+\begin{prop}
+Sia \(f \in L^{2}(\R^{n})\) tale che, detta \(\norma{\bm{w}}_{1} \coloneqq |\bm{w}\cdot\bm{w}|^{1/2}\) e detta \(\hat{f}(\bm{w})\) la trasformata di Fourier di \(f\), si abbia
+\begin{equation*}
+C_{f} \coloneqq \int_{\R^{n}} \norma{\bm{w}}_{1}\hat{f}(\bm{w})\dif\bm{w}<\infty.
+\end{equation*}
+Allora esiste una combinazione lineare
+\begin{equation*}
+G(\bm{x}) = b_{0}+\sum_{k=1}^{N} \alpha_{k}\sigma(\bm{w}_{k}\cdot \bm{x} + \theta_{k})
+\end{equation*}
+tale che, per ogni \(r \in \R^{> 0}\) e per ogni misura di probabilità \(\mu_{r}\) sulla palla chiusa \(B_{r} \coloneqq \set{\bm{x} \in \R^{n}\mid \norma{\bm{x}}\le r}\):
+\begin{equation*}
+\norma{G-f}^{2}_{L^{2}(B_{r},\mu_{r})} = \int_{B_{r}} |G(\bm{x})-f(\bm{x})|^{2} \dif \mu_{r}(\bm{x})<\frac{(2r\,C_{f})^{2}}{N}.
+\end{equation*}
+\end{prop}
+\chapter{Exact Approximation}
+\label{sec:org571e6f4}
+
+\section{Exact Learning (Machine Learning)}
+\label{sec:org3a813f6}
+By exact learning we mean the expressibility of a \hyperref[sec:org1346ff2]{network} to reproduce exactly the desired target function, i.e. the output of the network is exactly the target function. For an exact learning the network weights do not need \hyperref[sec:org25098bf]{tuning}; their values can be found exactly. Si parla quindi di \uline{rappresentazione esatta}, e non di \uline{apprendimento}.
+
+Alcuni casi in cui questo può succedere:
+\begin{itemize}
+\item \href{../../../../../org/roam/20250708121822-one_hidden_layer_relu_network_impara_esattamente_funzioni_a_supporto_finito.org}{One Hidden Layer Perceptron Network rappresenta esattamente funzioni a supporto finito}
+\item \href{../../../../../org/roam/20250708122516-rete_neurale_relu_feedforward_impara_esattamente_la_funzione_massimo.org}{Rete Neurale ReLU-feedforward rappresenta esattamente la funzione massimo tra N input}
+\end{itemize}
+\subsection{Exact Learning non è sempre possibile}
+\label{sec:orgad5bed8}
+Si consideri a titolo esplicativo \(C([0,1])\)\footnote{Vedi ``\href{../../../../../org/roam/20250113125602-classe_c_di_una_funzione.org}{Classe C di una funzione}''}, e si consideri una \hyperref[sec:org1346ff2]{rete neurale} con un \hyperref[sec:org239d5ff]{layer nascosto} con \hyperref[sec:org0042486]{funzione di attivazione} \hyperref[sec:org6886527]{logistica} \(\sigma\). La \hyperref[sec:org1346ff2]{funzione di input-output della rn} è
+\begin{equation*}
+G(x) = \sum_{j=1}^{N}\alpha_{j}\sigma(w_{j}x+\theta_{j}).
+\end{equation*}
+
+Siccome \(\sigma\) è \href{../../../../../org/roam/20250709150055-funzione_analitica.org}{analitica}, allora \(G(x)\) è analitica, mentre esistono funzioni continue ma non analitiche, come
+\begin{equation*}
+f(x)=\begin{cases}
+0 & x \in \left[0,\frac{1}{2}\right]\\[1em]
+x-\frac{1}{2} & x \in \left[\frac{1}{2},1\right].
+\end{cases}
+\end{equation*}
+\section{Funzioni a supporto finito}
+\label{sec:org749b1a4}
+\begin{prop}
+Sia \(g:\R^{r}\to \R\) una \href{../../../../../org/roam/20250202170607-classe_relazione_binaria.org}{funzione} qualsiasi e sia \(S=\set{\bm{x}_{1},\dots,\bm{x}_{n}} \subseteq \R^{r}\). Allora esiste
+\begin{equation*}
+G(\bm{x}) = \sum_{j=1}^{n} \alpha_{j} \, H(\bm{w}_{j}\cdot \bm{x}-\theta_{i}),
+\end{equation*}
+dove \(H\) è la \href{../../../../../org/roam/20250624161413-funzione_di_heaviside.org}{funzione di Heaviside}, \(\alpha_{j},\theta_{j} \in \R\) e \(\bm{w}_{j} \in \R^{r}\), tale che
+\begin{equation*}
+\forall i=1,\dots,n:\qquad G(x_{i}) = g(x_{i}).
+\end{equation*}
+\label{prop10.1.1}
+\end{prop}
+
+\begin{cor}
+Dati \(\set{(x_{i}, y_{i})\mid i =1,\dots,n} \subseteq \R^{r}\times \R\) esiste
+\begin{equation*}
+G(\bm{x}) = \sum_{j=1}^{n} \alpha_{j} \, H(\bm{w}_{j}\cdot \bm{x}-\theta_{i}),
+\end{equation*}
+dove \(H\) è la \href{../../../../../org/roam/20250624161413-funzione_di_heaviside.org}{funzione di Heaviside}, \(\alpha_{j},\theta_{j} \in \R\) e \(\bm{w}_{j} \in \R^{r}\), tale che
+\begin{equation*}
+\forall i=1,\dots,n:\qquad G(x_{i}) = y_{i}.
+\end{equation*}
+\label{cor10.1.3}
+\end{cor}
+\section{Funzione massimo}
+\label{sec:orgf7b7fa7}
+
+\begin{prop}
+La funzione \(\max\set{x_{1},x_{2}}\) è \hyperref[sec:org3a813f6]{rappresentata esattamente} da una \hyperref[sec:org1346ff2]{rete neurale} con un \hyperref[sec:org239d5ff]{layer nascosto} con 4 \hyperref[sec:org0026bd1]{neuroni} \hyperref[sec:orgbc4b1b1]{ReLU}, ovvero
+\begin{equation*}
+\max\set{x_{1},x_{2}} = \sum_{j=1}^{4}\lambda_{j}\operatorname{ReLU}(w_{1j}x_{1}+w_{2j}x_{2})
+\end{equation*}
+per qualche \(\lambda_{j}, w_{ij} \in \R\).
+\end{prop}
+
+\begin{prop}
+La funzione \(f(x_{1},\dots,f_{x_{n}}) = \max\set{x_{1},\dots,x_{n}}\) è \hyperref[sec:org3a813f6]{rappresentata esattamente} da una \hyperref[sec:org1346ff2]{rete neurale} \href{../../../../../org/roam/20250624155858-neurone_artificiale.org}{ReLU-feedforward} con
+\begin{equation*}
+L=\begin{cases}
+2k & \text{se }n=2^{k}\\
+2(\floor{\log_{2}n} + 1)&\text{altrimenti}
+\end{cases}
+\end{equation*}
+\label{prop10.2.2}
+\end{prop}
+
+\begin{prop}
+Esiste una \hyperref[sec:org1346ff2]{rete neurale} \hyperref[sec:org9afed3b]{feedforward} con input di dimensione 2, un layer nascosto di larghezza 2, output di dimensione 1 con \hyperref[sec:org0042486]{funzione di attivazione} \hyperref[sec:orgbc4b1b1]{ReLU} in ogni \hyperref[sec:org0026bd1]{neurone} che \hyperref[sec:org3a813f6]{rappresenta esattamente} la funzione
+\begin{equation*}
+f(x_{1},x_{2}) = \max\set{x_{1},x_{2}}\quad \forall x_{1} \in \R, x_{2} \in \R^{\ge 0}.
+\end{equation*}
+come in Fig. \ref{fig:max2elementi}.
+
+In realtà, però, per ogni \(x_{1},x_{2} \in \R\)
+\begin{equation*}
+\max\set{x_{1},x_{2}} =  \operatorname{ReLU}(x_{1}-x_{2})+x_{2}.
+\end{equation*}
+\label{prop10.2.4}
+\end{prop}
+
+\begin{figure}
+\begin{equation*}
+\begin{tikzcd}[ampersand replacement=\&,cramped]
+	{x_1} \\
+	\&\& {\boxed{\operatorname{ReLU}}} \\
+	\&\&\&\& {\boxed{\operatorname{ReLU}}} \& {\max\set{x_1,x_2}} \\
+	\&\& {\boxed{\operatorname{ReLU}}} \\
+	{x_2}
+	\arrow["1"{description}, from=1-1, to=2-3]
+	\arrow["{{-1}}"{description}, from=1-1, to=4-3]
+	\arrow["1"{description}, from=2-3, to=3-5]
+	\arrow[from=3-5, to=3-6]
+	\arrow["1"{description}, from=4-3, to=3-5]
+	\arrow["0"{description}, from=5-1, to=2-3]
+	\arrow["1"{description}, from=5-1, to=4-3]
+\end{tikzcd}
+\end{equation*}
+\caption{\label{fig:max2elementi}Rete Neurale che impara \(\max\set{x_{1},x_{2}}\).}
+\end{figure}
+\section{Widht vs Depth}
+\label{sec:org7354524}
+
+\begin{prop}
+Sia \(\mathcal{N}\) una \hyperref[sec:org1346ff2]{rete neurale} \href{../../../../../org/roam/20250624155858-neurone_artificiale.org}{ReLU-feedforward}, con
+\begin{itemize}
+\item input \(d\)-dimensionale
+\item 1 \hyperref[sec:org239d5ff]{layer nascosto} di larghezza \(n\)
+\item output 1-dimensionale.
+\end{itemize}
+
+Allora esiste un'altra \href{../../../../../org/roam/20250624155858-neurone_artificiale.org}{rete neurale ReLU-feedforward} \(\tilde{\mathcal{N}}\), con
+\begin{itemize}
+\item input \(d\)-dimensionale di input \(d\)
+\item \(n+2\) \hyperref[sec:org239d5ff]{layer nascosti}, ciascuno di larghezza \(d+1\), e
+\item output 1-dimensionale,
+\end{itemize}
+tale che \(\mathcal{N}\) e \(\tilde{\mathcal{N}}\) producono la stessa funzione per input in \([0,1]^{d}\).
+\label{prop10.2.5}
+\end{prop}
+\section{ReLU feedforward network}
+\label{sec:org114aea1}
+
+\begin{lem}
+La \hyperref[sec:org1346ff2]{funzione input-output} di una \hyperref[sec:org1346ff2]{rete neurale} \href{../../../../../org/roam/20250624155858-neurone_artificiale.org}{ReLU-feedforward} è una \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua} e \href{../../../../../org/roam/20250701140551-funzione_lineare_a_tratti.org}{lineare a tratti}.
+\label{lem10.2.6}
+\end{lem}
+\begin{prop}
+Sia \(f:\R^{n}\to \R\) una \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua} e \href{../../../../../org/roam/20250701140551-funzione_lineare_a_tratti.org}{lineare a tratti}. Allora esiste una \hyperref[sec:org1346ff2]{rete neurale} \hyperref[sec:org9afed3b]{feedforward}, con \hyperref[sec:org0026bd1]{neuroni} \hyperref[sec:orgbc4b1b1]{ReLU} e \hyperref[sec:org0042486]{lineari}, che \hyperref[sec:org3a813f6]{rappresenta esattamente} \(f\). Inoltre ha \(L\) \hyperref[sec:org239d5ff]{layers}, con
+\begin{equation*}
+L=\begin{cases}
+2(\floor{\log_{2}(n+1)}+2) &\text{se }n+1\neq 2^{k},\\
+2(\log_{2}(n+1)+1) &\text{se }n+1=2^{k}.
+\end{cases}
+\end{equation*}
+\label{prop10.2.7}
+\end{prop}
+\section{Kolmogorov-Arnold-Sprecher}
+\label{sec:orgd8d9f17}
+
+\begin{thm}
+Ogni \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzione continua} \(f:[0,1]^{n}\to \R\), per \(n\ge 2\), può essere scritta come
+\begin{equation*}
+f(x_{1},\dots,x_{n}) = \sum_{j=1}^{2n+1}\chi_{j}\left(\sum_{i=1}^{n}\psi_{ij}(x_{i})\right)
+\end{equation*}
+dove \(\chi_{j}\) e \(\psi_{ij}\) sono \href{../../../../../org/roam/20250103103252-funzione_continua.org}{funzioni continue} in una variabile, e \(\psi_{ij}\) sono \href{../../../../../org/roam/20250203132953-funzione_monotona.org}{funzioni monotone} che non dipendono da \(f\).
+\label{thm10.3.1}
+\end{thm}
+
+\begin{thm}
+Per ogni \(n\ge {2}\) esiste una \href{../../../../../org/roam/20250203132953-funzione_monotona.org}{funzione crescente} \(\psi:[0,1]\to \R\) tale che \(\psi\left([0,1]\right)=[0,1]\), dipendente da \(n\), con la seguente proprietà: per ogni \(\delta>0\) esiste \(\varepsilon \in \Q\), con \(0<\varepsilon<\delta\), tale che ogni \(f:[0,1]^{n}\to \R\) può essere scritta come
+\begin{equation*}
+f(x_{1},\dots,x_{n}) = \sum_{j=1}^{2n+1} \chi\left(
+\sum_{i=1}^{n}\lambda^{i}\psi(x_{i}+\varepsilon(j-1)) +j-1
+\right)
+\end{equation*}
+dove \(\chi:\R\to \R\) è continua e \(\lambda \in \R\) è indipendente da \(f\).
+\label{thm10.3.2}
+\end{thm}
+\subsection{Applicazione alle reti neurali}
+\label{sec:org33dc803}
+
+This result is important to the field of \hyperref[sec:org1346ff2]{neural networks} because it states that any \href{../../../../../org/roam/20250103103252-funzione_continua.org}{continuous function} on \([0,1]^{n}\) can be \hyperref[sec:org3a813f6]{represented exactly} by a \hyperref[sec:org1346ff2]{neural network} with two \hyperref[sec:org239d5ff]{hidden layers}. The \hyperref[sec:org0042486]{activation function} for the first hidden layer is \(\psi\) and for the second hidden layer is \(\chi\).
 \end{document}
