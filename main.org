@@ -3,6 +3,11 @@
 #+author: Davide Peccioli
 #+latex_class: org-base-book
 #+latex_header: \renewcommand{\href}[2]{\textcolor{blue}{#2}}
+# commenta la seguente riga per avere il pdf in formato a4
+# #+latex_header: \geometry{papersize={13.97cm,21.59cm}, bottom=3cm, heightrounded}
+
+# commenta la seguente riga per non vedere i bordi pagina
+# #+latex_header: \usepackage{showframe}
 
 * -------------------------------------------------- PARTE I :ignore:
 
@@ -10,7 +15,7 @@
 \part{De Rossi}
 #+END_EXPORT
 
-* Reti Neurali
+* Introduzione alle Reti Neurali
 
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Neurone Artificiale"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250624155858-neurone_artificiale.org::*Funzioni di attivazione"
@@ -42,6 +47,15 @@
 \part{Sirovich}
 #+END_EXPORT
 
+
+* Neuroni artificiali
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250710102223-percettrone.org::*Percettrone"
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250710111302-neurone_sigmoidale.org::*Neurone Sigmoidale"
+
+* Bias Variance Tradeoff :ignore:
+
+#+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250710150636-bias_variance_tradeoff.org::*Bias-Variance tradeoff" :minlevel 1
 
 * ------------------------------------------------- PARTE III :ignore:
 
@@ -87,7 +101,7 @@ Ecco alcuni semplici corollari del Teorema di Ascoli-Arzelà.
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630155139-misura_di_dirac_approssimata_da_misure_a_campana.org::*Approssimazione della misura di Dirac"
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630155208-funzione_reale_continua_su_un_compatto_e_uniformemente_continua.org::*Teorema di Heine-Cantor"
 
-** Reti neurali che imparano funzioni continue
+** Funzioni continue
 
 *** One Hidden Layer Perceptron Network
 #+INCLUDE: "/Users/davidepeccioli/Documents/org/roam/20250630154418-one_hidden_layer_perceptron_network_impara_funzioni_continue.org::*One Hidden Layer Perceptron Network impara funzioni continue unidimensionali"
